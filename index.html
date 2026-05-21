@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo Interactiva — Zeus eDoc</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+<script>
+/* CONFIGURACIÓN */
+const CFG = {
+
+  /* ── Marca / Producto ──────────────────────────────────────── */
+  brand: {
+    name:     "Zeus eDoc",
+    tagline:  "Documento de Control Digital de Transporte",
+    company:  "Zetes Spain",
+    contact:  "michel.salazar@es.zetes.com & jose.fanego@es.zetes.com",
+    date:     "Mayo 2026",
+    /* colores del tema */
+    colorPrimary:   "#E8620A",   /* naranja Zetes          */
+    colorSecondary: "#00897B",   /* teal                   */
+    colorDark:      "#0D1B4B",   /* azul marino fondo      */
+  },
+
+  /* ── Hero ──────────────────────────────────────────────────── */
+  hero: {
+    eyebrow:  "Zetes Spain · Demo Interactiva",
+    title:    "Documento de control",
+    titleEM:  "100% digital",         /* parte resaltada en color primario */
+    subtitle: "Cumple la Ley de Movilidad Sostenible desde hoy. Prepara tu empresa para el reglamento eFTI europeo de 2027.",
+    ctaPrimary:  { label: "Ver la urgencia regulatoria →", href: "#regulacion" },
+    ctaSecondary:{ label: "Explorar la demo",              href: "#actores"    },
+  },
+
+  /* ── Sección Regulación / Contexto ────────────────────────── */
+  
+  regulacion: {
+    sectionLabel: "01 — Marco Regulatorio",
+    sectionTitle: "Dos fechas que cambian\nel sector",
+    cards: [
+      {
+        flag:     "🇪🇸",
+        title:    "Ley de Movilidad Sostenible",
+        subtitle: "Ley 9/2025 · BOE Diciembre 2025",
+        deadline: new Date("2026-10-05T00:00:00"),   /* countdown activo */
+        deadlineLabel: "Deadline: 5 Oct 2026",
+        accentColor: "#E8620A",
+        bullets: [
+          "Documento de Control obligatoriamente digital",
+          "Transportista debe mostrar QR de acceso al documento",
+          "No requiere firma cualificada — vale formato digital válido",
+          "Responsable: el expedidor (cargador contractual)",
+          "Sanciones hasta 6.000 € · posible inmovilización del vehículo",
+        ],
+      },
+      {
+        flag:     "🇪🇺",
+        title:    "Reglamento eFTI",
+        subtitle: "Reglamento (UE) 2020/1056 · Aplicación plena Julio 2027",
+        deadline: new Date("2027-07-09T00:00:00"),
+        deadlineLabel: "Aplicación plena: 9 Jul 2027",
+        accentColor: "#00897B",
+        bullets: [
+          "Marco europeo para todos los modos de transporte",
+          "Autoridades obligadas a aceptar datos de plataformas certificadas",
+          "Firma electrónica avanzada o cualificada (eIDAS) requerida",
+          "Plataformas deben certificarse ante organismos acreditados (ENAC)",
+          "Ahorro estimado: 20.000–27.000 M€ hasta 2040",
+        ],
+      },
+    ],
+    bottomNote: "Zeus eDoc cubre hoy el LMS (Fase 1 firma manuscrita + Fase 2 SealSign OTP) y está construido sobre la arquitectura que permite alcanzar la certificación eFTI — sin necesidad de cambiar de plataforma.",
+  },
+
+  /* ── Actores / Roles ───────────────────────────────────────── */
+  actores: {
+    sectionLabel: "02 — Actores y Flujos",
+    sectionTitle: "Tres roles,\nun ciclo digital",
+    subtitle:     "Cada actor tiene su propio canal. Nadie necesita instalar nada nuevo si no quiere.",
+    items: [
+      {
+        emoji: "📦",
+        role:  "Expedidor",
+        sub:   "Consignador / Cargador",
+        color: "#E8620A",
+        bullets: [
+          "Crea el documento vía portal web o API REST",
+          "Firma automática al crear (batch / desatendido)",
+          "Gestiona todos los documentos desde el portal",
+          "Monitoriza el estado S·C·R en tiempo real",
+        ],
+      },
+      {
+        emoji: "🚛",
+        role:  "Transportista",
+        sub:   "Carrier",
+        color: "#00897B",
+        bullets: [
+          "Con App: se autentica con matrícula + OTP",
+          "Sin App: recibe enlace de firma vía WhatsApp",
+          "Firma antes de la carga · QR siempre a mano",
+          "Funciona offline con sincronización automática",
+        ],
+      },
+      {
+        emoji: "📬",
+        role:  "Destinatario",
+        sub:   "Consignatario",
+        color: "#7B1FA2",
+        bullets: [
+          "Firma la recepción de mercancía en entrega",
+          "Opción A: firma en el teléfono del transportista",
+          "Opción B: recibe enlace en su propio dispositivo",
+          "Sin instalación · sin registro previo",
+        ],
+      },
+    ],
+  },
+
+  /* ── Demo por pasos (portal / flujo principal) ─────────────── */
+  demo: {
+    sectionLabel: "03 — Demo Portal Web",
+    sectionTitle: "Asistente en\n5 pasos",
+    subtitle:     "Gestión del Expedidor · Dashboard · Documentos · Creación",
+    steps: [
+      {
+        title: "Archivo del documento",
+        short: "Archivo",
+        desc:  "Sube tu propio PDF de transporte o activa la generación automática. Zeus eDoc crea el PDF final a partir de los metadatos que introduces en los pasos siguientes.",
+        tags:  [{ label: "PDF upload", color: "orange" }, { label: "Auto-generación", color: "orange" }],
+      },
+      {
+        title: "Partes del envío",
+        short: "Partes",
+        desc:  "Introduce los datos del Expedidor, Transportista y Destinatario: empresa, NIF/VAT, dirección, teléfono para OTP y email. Estos datos se guardan para futuros documentos.",
+        tags:  [{ label: "Expedidor", color: "orange" }, { label: "Transportista", color: "teal" }, { label: "Destinatario", color: "purple" }],
+      },
+      {
+        title: "Datos del transporte",
+        short: "Transporte",
+        desc:  "Matrícula del vehículo, descripción de la mercancía, origen y destino completos, peso bruto y si hay mercancía peligrosa (ADR). Estos campos alimentan el Documento de Control.",
+        tags:  [{ label: "Matrícula", color: "teal" }, { label: "Mercancía", color: "teal" }, { label: "ADR", color: "orange" }],
+      },
+      {
+        title: "Opciones de firma",
+        short: "Firma",
+        desc:  "Selecciona el canal de firma del transportista: App (Fase 1 manuscrita o Fase 2 SealSign OTP) o sin app (WhatsApp/SMS/email). Configura también cómo firmará el destinatario.",
+        tags:  [{ label: "Fase 1 manuscrita", color: "orange" }, { label: "SealSign OTP", color: "teal" }, { label: "WhatsApp", color: "teal" }],
+      },
+      {
+        title: "Revisión y envío",
+        short: "Confirmar",
+        desc:  "Vista previa del documento completo. Al confirmar, el Expedidor firma automáticamente, se genera el QR y el Transportista recibe su notificación de firma. Estado S·C·R visible en tiempo real.",
+        tags:  [{ label: "QR generado", color: "orange" }, { label: "Firma auto Expedidor", color: "teal" }, { label: "Estado S·C·R", color: "purple" }],
+      },
+    ],
+  },
+
+  /* ── App Móvil ─────────────────────────────────────────────── */
+  appMovil: {
+    sectionLabel: "04 — App Móvil",
+    sectionTitle: "Firma en\ncualquier escenario",
+    cols: [
+      {
+        title: "Transportista",
+        color: "#00897B",
+        steps: [
+          { phase: "1. Autenticación",          detail: "Introduce matrícula del vehículo + código OTP recibido por SMS" },
+          { phase: "2. Lista de documentos",    detail: "Documentos pendientes con estado · Filtro por completados" },
+          { phase: "3. Detalle del documento",  detail: "Datos del transporte · Estado de firmas S·C·R" },
+          { phase: "4. Firma manuscrita (F1)",  detail: "Canvas manuscrito con timestamp, GPS y dispositivo como evidencia reforzada" },
+          { phase: "5. Firma SealSign (F2)",    detail: "OTP a su móvil · Firma electrónica avanzada eIDAS · Sin instalación extra" },
+          { phase: "6. QR siempre disponible",  detail: "Código QR al documento digital · Válido para cualquier inspección de tráfico" },
+        ],
+      },
+      {
+        title: "Destinatario",
+        color: "#7B1FA2",
+        steps: [
+          { phase: "Opción A — Dispositivo del transportista", detail: "El destinatario firma directamente en el teléfono del transportista in situ. Sin instalación ni cuenta." },
+          { phase: "Opción B — Dispositivo propio",            detail: "Recibe enlace por SMS / WhatsApp / email · Abre en navegador · Firma con o sin eIDAS." },
+          { phase: "Sin fricción",                             detail: "No requiere instalación de ninguna app ni registro previo en la plataforma." },
+          { phase: "Confirmación automática",                  detail: "Al firmar, el documento queda sellado y el estado S·C·R se actualiza en tiempo real en el portal." },
+        ],
+      },
+    ],
+  },
+
+  /* ── Roadmap ───────────────────────────────────────────────── */
+  roadmap: {
+    sectionLabel: "05 — Hoja de Ruta",
+    sectionTitle: "¿Qué viene\na continuación?",
+    phases: [
+      {
+        phase: "AHORA",
+        sub:   "En producción",
+        style: "now",
+        items: [
+          "Documento de Control (LMS)",
+          "Firma manuscrita (Fase 1)",
+          "Firma electrónica SealSign OTP (Fase 2)",
+          "Portal web + App móvil (Android e iOS)",
+          "Flujo transportista: WhatsApp / SMS / email",
+          "Trazabilidad Olympus + QR de acceso",
+        ],
+      },
+      {
+        phase: "MUY PRONTO",
+        sub:   "2026",
+        style: "soon",
+        items: [
+          "Integración PoD Chronos/Ares",
+          "API de integración PoD del cliente",
+          "API bulk para expedidores de alto volumen",
+          "ZetesConfidens",
+        ],
+      },
+      {
+        phase: "MEDIO PLAZO",
+        sub:   "2026–2027",
+        style: "mid",
+        items: [
+          "Certificación eFTI",
+          "Módulo de albaranes",
+          "Documentos CMR (transporte internacional)",
+          "Declaraciones ADR / mercancías peligrosas",
+          "Flujos de firma multi-documento",
+        ],
+      },
+    ],
+  },
+
+  /* ── Cierre / Próximos pasos ───────────────────────────────── */
+  cierre: {
+    title:    "¿Preguntas?",
+    titleEM:  "",
+    subtitle: "Cuéntanos vuestro caso de uso y cerramos los próximos pasos juntos.",
+    nextSteps: [
+      "Definir usuarios piloto y caso de uso inicial",
+      "Reunión técnica para evaluar integración API / PoD",
+      "Acceso al entorno de sandbox para pruebas",
+      "Propuesta comercial ajustada a vuestro volumen",
+    ],
+  },
+
+  /* ── Navegación ────────────────────────────────────────── */
+  nav: {
+    labels: ['Regulación','Actores','Flujo','Arquitectura','Portal Web','App Móvil','Roadmap'],
+  },
+
+  /* ── Sección Flujo ─────────────────────────────────────── */
+  flujo: {
+    sectionLabel: "02b — Flujo del Proceso",
+    sectionTitle: "¿Cómo funciona\nen la práctica?",
+    subtitle:     "Del sistema del expedidor a la inspección de tráfico — todo digital, sin papel",
+  },
+
+  /* ── Sección Arquitectura ──────────────────────────────── */
+  arquitectura: {
+    sectionLabel: "03 — Arquitectura",
+    sectionTitle: "Cumple hoy.\nPrepárate para mañana.",
+    subtitle:     "Zeus eDoc conecta el flujo documental nacional con una arquitectura certificada, preparada para escalar hacia eFTI y futuras regulaciones europeas",
+    footerBar:    "Mismo punto de acceso para verificar, inspeccionar y escalar",
+  },
+};
+
+/* CFG_EN — Versión en inglés */
+const CFG_EN = {
+  nav: {
+    labels: ['Regulation','Actors','Flow','Architecture','Web Portal','Mobile App','Roadmap'],
+  },
+  brand: {
+    name:           "Zeus eDoc",
+    tagline:        "Digital Transport Control Document",
+    company:        "Zetes Spain",
+    contact:        "michel.salazar@es.zetes.com & jose.fanego@es.zetes.com",
+    date:           "May 2026",
+    colorPrimary:   "#E8620A",
+    colorSecondary: "#00897B",
+    colorDark:      "#0D1B4B",
+  },
+  hero: {
+    eyebrow:     "Zetes Spain · Interactive Demo",
+    title:       "Transport documents",
+    titleEM:     "100% digital",
+    subtitle:    "Comply with the Sustainable Mobility Law today. Get your company ready for the EU eFTI regulation in 2027.",
+    ctaPrimary:  { label: "See the regulatory urgency →", href: "#regulacion" },
+    ctaSecondary:{ label: "Explore the demo",             href: "#actores"    },
+  },
+  regulacion: {
+    sectionLabel: "01 — Regulatory Framework",
+    sectionTitle: "Two dates that change\nthe industry",
+    cards: [
+      {
+        flag:          "🇪🇸",
+        title:         "Sustainable Mobility Law",
+        subtitle:      "Law 9/2025 · BOE December 2025",
+        deadline:      new Date("2026-10-05T00:00:00"),
+        deadlineLabel: "Deadline: 5 Oct 2026",
+        accentColor:   "#E8620A",
+        bullets: [
+          "Transport Control Document must be fully digital",
+          "Carrier must show QR code to access the document",
+          "No qualified signature required — any valid digital format",
+          "Responsible party: the shipper (contractual loader)",
+          "Fines up to €6,000 · possible vehicle immobilisation",
+        ],
+      },
+      {
+        flag:          "🇪🇺",
+        title:         "eFTI Regulation",
+        subtitle:      "Regulation (EU) 2020/1056 · Full application July 2027",
+        deadline:      new Date("2027-07-09T00:00:00"),
+        deadlineLabel: "Full application: 9 Jul 2027",
+        accentColor:   "#00897B",
+        bullets: [
+          "European framework for all modes of transport",
+          "Authorities required to accept data from certified platforms",
+          "Advanced or qualified electronic signature (eIDAS) required",
+          "Platforms must be certified by accredited bodies (ENAC)",
+          "Estimated savings: €20,000–27,000M by 2040",
+        ],
+      },
+    ],
+    bottomNote: "Zeus eDoc covers the SML today (Phase 1 handwritten + Phase 2 SealSign OTP) and is built on the architecture that enables eFTI certification — without changing platforms.",
+  },
+  actores: {
+    sectionLabel: "02 — Actors & Flows",
+    sectionTitle: "Three roles,\none digital cycle",
+    subtitle:     "Each actor has their own channel. No one needs to install anything new if they don't want to.",
+    items: [
+      {
+        emoji: "📦",
+        role:  "Shipper",
+        sub:   "Consignor / Loader",
+        color: "#E8620A",
+        bullets: [
+          "Creates the document via web portal or REST API",
+          "Automatic signature upon creation (batch / unattended)",
+          "Manages all documents from the portal",
+          "Monitors S·C·R status in real time",
+        ],
+      },
+      {
+        emoji: "🚛",
+        role:  "Carrier",
+        sub:   "Transport Operator",
+        color: "#00897B",
+        bullets: [
+          "With App: authenticates with plate number + OTP",
+          "Without App: receives signing link via WhatsApp",
+          "Signs before loading · QR always available",
+          "Works offline with automatic synchronisation",
+        ],
+      },
+      {
+        emoji: "📬",
+        role:  "Receiver",
+        sub:   "Consignee",
+        color: "#7B1FA2",
+        bullets: [
+          "Signs receipt of goods upon delivery",
+          "Option A: signs on the carrier's phone",
+          "Option B: receives link on their own device",
+          "No installation · no prior registration",
+        ],
+      },
+    ],
+  },
+  flujo: {
+    sectionLabel: "02b — Process Flow",
+    sectionTitle: "How does it work\nin practice?",
+    subtitle:     "From the shipper's system to traffic inspection — fully digital, no paper",
+  },
+  arquitectura: {
+    sectionLabel: "03 — Architecture",
+    sectionTitle: "Compliant today.\nReady for tomorrow.",
+    subtitle:     "Zeus eDoc connects the national document flow with a certified architecture, ready to scale towards eFTI and future European regulations",
+    footerBar:    "Single access point to verify, inspect and scale",
+  },
+  demo: {
+    sectionLabel: "04 — Web Portal Demo",
+    sectionTitle: "5-step\nwizard",
+    subtitle:     "Shipper Management · Dashboard · Documents · Creation",
+    steps: [
+      {
+        title: "Document file",
+        short: "File",
+        desc:  "Upload your own transport PDF or activate automatic generation. Zeus eDoc creates the final PDF from the metadata you enter in the following steps.",
+        tags:  [{ label: "PDF upload", color: "orange" }, { label: "Auto-generation", color: "orange" }],
+      },
+      {
+        title: "Shipment parties",
+        short: "Parties",
+        desc:  "Enter data for the Shipper, Carrier and Receiver: company, VAT number, address, OTP phone and email. This data is saved for future documents.",
+        tags:  [{ label: "Shipper", color: "orange" }, { label: "Carrier", color: "teal" }, { label: "Receiver", color: "purple" }],
+      },
+      {
+        title: "Transport data",
+        short: "Transport",
+        desc:  "Vehicle plate number, cargo description, full origin and destination, gross weight and whether there are hazardous goods (ADR). These fields feed the Control Document.",
+        tags:  [{ label: "Plate number", color: "teal" }, { label: "Cargo", color: "teal" }, { label: "ADR", color: "orange" }],
+      },
+      {
+        title: "Signing options",
+        short: "Sign",
+        desc:  "Select the carrier signing channel: App (Phase 1 handwritten or Phase 2 SealSign OTP) or without app (WhatsApp/SMS/email). Also configure how the receiver will sign.",
+        tags:  [{ label: "Phase 1 handwritten", color: "orange" }, { label: "SealSign OTP", color: "teal" }, { label: "WhatsApp", color: "teal" }],
+      },
+      {
+        title: "Review & send",
+        short: "Confirm",
+        desc:  "Full document preview. Upon confirmation, the Shipper signs automatically, the QR is generated and the Carrier receives their signing notification. S·C·R status visible in real time.",
+        tags:  [{ label: "QR generated", color: "orange" }, { label: "Auto Shipper sign", color: "teal" }, { label: "S·C·R Status", color: "purple" }],
+      },
+    ],
+  },
+  appMovil: {
+    sectionLabel: "05 — Mobile App",
+    sectionTitle: "Sign in\nany scenario",
+    cols: [
+      {
+        title: "Carrier",
+        color: "#00897B",
+        steps: [
+          { phase: "1. Authentication",       detail: "Enter vehicle plate number + OTP code received by SMS" },
+          { phase: "2. Document list",         detail: "Pending documents with status · Filter by completed" },
+          { phase: "3. Document detail",       detail: "Transport data · S·C·R signature status" },
+          { phase: "4. Handwritten sign (P1)", detail: "Handwritten canvas with timestamp, GPS and device as reinforced evidence" },
+          { phase: "5. SealSign (P2)",         detail: "OTP to their mobile · Advanced eIDAS electronic signature · No extra installation" },
+          { phase: "6. QR always available",   detail: "QR code to the digital document · Valid for any traffic inspection" },
+        ],
+      },
+      {
+        title: "Receiver",
+        color: "#7B1FA2",
+        steps: [
+          { phase: "Option A — Carrier's device", detail: "The receiver signs directly on the carrier's phone on-site. No installation or account required." },
+          { phase: "Option B — Own device",        detail: "Receives link by SMS / WhatsApp / email · Opens in browser · Signs with or without eIDAS." },
+          { phase: "Zero friction",                detail: "No app installation required, no prior registration on the platform." },
+          { phase: "Automatic confirmation",       detail: "Upon signing, the document is sealed and the S·C·R status is updated in real time on the portal." },
+        ],
+      },
+    ],
+  },
+  roadmap: {
+    sectionLabel: "06 — Roadmap",
+    sectionTitle: "What's coming\nnext?",
+    phases: [
+      {
+        phase: "NOW",
+        sub:   "In production",
+        style: "now",
+        items: [
+          "Control Document (SML)",
+          "Handwritten signature (Phase 1)",
+          "SealSign OTP electronic signature (Phase 2)",
+          "Web portal + Mobile app (Android & iOS)",
+          "Carrier flow: WhatsApp / SMS / email",
+          "Olympus traceability + QR access code",
+        ],
+      },
+      {
+        phase: "COMING SOON",
+        sub:   "2026",
+        style: "soon",
+        items: [
+          "Chronos/Ares PoD integration",
+          "Customer PoD API integration",
+          "Bulk API for high-volume shippers",
+          "ZetesConfidens",
+        ],
+      },
+      {
+        phase: "MID-TERM",
+        sub:   "2026–2027",
+        style: "mid",
+        items: [
+          "eFTI certification",
+          "Delivery note module",
+          "CMR documents (international transport)",
+          "ADR / hazardous goods declarations",
+          "Multi-document signing flows",
+        ],
+      },
+    ],
+  },
+  cierre: {
+    title:    "Questions?",
+    titleEM:  "",
+    subtitle: "Tell us about your use case and let's define the next steps together.",
+    nextSteps: [
+      "Define pilot users and initial use case",
+      "Technical meeting to evaluate API / PoD integration",
+      "Access to sandbox environment for testing",
+      "Commercial proposal tailored to your volume",
+    ],
+  },
+};
+
+/* FIN  CONFIGURACIÓN */
+</script>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--c-dark);
+  color: #fff;
+  overflow-x: hidden;
+  --c-primary:   #E8620A;
+  --c-secondary: #00897B;
+  --c-dark:      #0D1B4B;
+}
+
+/* Progress bar */
+#pb { position:fixed; top:0; left:0; height:3px; background:linear-gradient(90deg,var(--c-primary),#FFB347); width:0%; z-index:9999; transition:width .1s linear; }
+
+/* Nav */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 52px;
+  background:rgba(13,27,75,.88); backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+#nav-brand {
+  font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:800;
+  letter-spacing:-.02em;
+}
+#nav-brand em { font-style:normal; color:var(--c-primary); }
+#nav-links { display:flex; gap:28px; list-style:none; }
+#nav-links a {
+  font-size:.78rem; font-weight:500; letter-spacing:.05em; text-transform:uppercase;
+  color:rgba(255,255,255,.45); text-decoration:none; transition:color .2s;
+}
+#nav-links a:hover, #nav-links a.active { color:var(--c-primary); }
+.lang-btn {
+  background:none; border:1px solid rgba(255,255,255,.22); color:rgba(255,255,255,.6);
+  cursor:pointer; font-family:'DM Sans',sans-serif; font-size:.78rem; font-weight:600;
+  letter-spacing:.06em; padding:4px 13px; border-radius:4px;
+  transition:border-color .2s, color .2s, background .2s;
+}
+.lang-btn:hover { border-color:var(--c-primary); color:#fff; }
+.reg-list li::before { content:'›'; position:absolute; left:0; color:var(--acc,var(--c-primary)); font-weight:700; }
+
+/* Generic section */
+section {
+  min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:128px 64px 80px; position:relative; overflow:hidden;
+  gap:56px;
+}
+.s-dark  { background: var(--c-dark); }
+.s-deep  { background: #06122E; }
+.s-black { background: #040D2A; }
+
+/* Section header */
+.s-label {
+  font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--c-primary); margin-bottom:10px;
+}
+.s-title {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2rem,3.8vw,3.2rem); font-weight:800;
+  line-height:1.05; letter-spacing:-.03em; white-space:pre-line;
+}
+.s-sub {
+  margin-top:12px; font-size:.9rem; font-weight:300;
+  color:rgba(255,255,255,.45); line-height:1.65; max-width:520px;
+}
+.s-hdr { text-align:center; }
+.s-hdr-left { text-align:left; }
+.accent-line { width:56px; height:2px; background:var(--c-primary); margin-top:14px; }
+.accent-line-center { margin:14px auto 0; }
+
+/* Reveal on scroll */
+.rv { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+.rv.vis { opacity:1; transform:none; }
+
+/* ── HERO ── */
+#hero {
+  background:
+    radial-gradient(ellipse 80% 55% at 65% 35%, rgba(232,98,10,.13) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 8%  80%, rgba(0,137,123,.1)  0%, transparent 60%),
+    var(--c-dark);
+  text-align:center;
+}
+.hero-eye {
+  font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--c-primary);
+  opacity:0; animation:fadeUp .8s .2s ease forwards;
+}
+.hero-h1 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(3.2rem,8vw,7rem); font-weight:800;
+  line-height:.95; letter-spacing:-.04em; max-width:900px;
+  opacity:0; animation:fadeUp .9s .35s ease forwards;
+}
+.hero-h1 em { color:var(--c-primary); font-style:normal; }
+.hero-sub-txt {
+  margin-top:24px; font-size:1.05rem; font-weight:300;
+  color:rgba(255,255,255,.5); max-width:500px; line-height:1.65;
+  opacity:0; animation:fadeUp .9s .5s ease forwards;
+}
+.hero-cta {
+  margin-top:44px; display:flex; gap:14px; flex-wrap:wrap; justify-content:center;
+  opacity:0; animation:fadeUp .9s .65s ease forwards;
+}
+.btn-p {
+  background:var(--c-primary); color:#fff;
+  padding:13px 30px; border-radius:4px;
+  font-family:'DM Sans',sans-serif; font-size:.88rem; font-weight:600;
+  text-decoration:none; letter-spacing:.02em;
+  transition:transform .2s, box-shadow .2s;
+}
+.btn-p:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(232,98,10,.25); }
+.btn-o {
+  border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.65);
+  padding:13px 30px; border-radius:4px;
+  font-family:'DM Sans',sans-serif; font-size:.88rem; font-weight:500;
+  text-decoration:none; transition:border-color .2s, color .2s;
+}
+.btn-o:hover { border-color:var(--c-primary); color:#fff; }
+.hero-scroll {
+  position:absolute; bottom:32px;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  color:rgba(255,255,255,.25); font-size:.68rem; letter-spacing:.12em; text-transform:uppercase;
+  animation:bounce 2s infinite;
+}
+.scroll-ln { width:1px; height:36px; background:linear-gradient(to bottom, var(--c-primary), transparent); }
+
+/* ── REGULACION ── */
+.reg-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:22px; width:100%; max-width:1020px; }
+.reg-card {
+  border-radius:8px; padding:38px;
+  transition:transform .3s;
+}
+.reg-card:hover { transform:translateY(-4px); }
+.reg-flag { font-size:2rem; margin-bottom:14px; display:block; }
+.reg-name { font-family:'Syne',sans-serif; font-size:1.05rem; font-weight:700; margin-bottom:4px; }
+.reg-sub  { font-size:.78rem; color:rgba(255,255,255,.38); margin-bottom:22px; }
+.cd-row   { display:flex; gap:10px; align-items:flex-end; margin-bottom:22px; }
+.cd-unit  { text-align:center; }
+.cd-n     { font-family:'Syne',sans-serif; font-weight:800; font-size:2.8rem; line-height:1; display:block; }
+.cd-lbl   { font-size:.58rem; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.3); display:block; margin-top:3px; }
+.cd-sep   { font-family:'Syne',sans-serif; font-size:2rem; font-weight:300; color:rgba(255,255,255,.18); padding-bottom:10px; }
+.reg-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.reg-list li {
+  font-size:.86rem; line-height:1.55; color:#fff;
+  padding-left:18px; position:relative;
+}
+.reg-badge {
+  display:inline-block; margin-top:18px;
+  font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:5px 14px; border-radius:100px;
+}
+.reg-note {
+  background:rgba(232,98,10,.1); border:1px solid rgba(232,98,10,.25);
+  border-radius:6px; padding:20px 28px;
+  font-size:.86rem; line-height:1.7; color:rgba(255,255,255,.7);
+  max-width:900px; text-align:center;
+}
+.reg-note strong { color:var(--c-primary); }
+
+/* ── ACTORES ── */
+.actors-row { display:flex; width:100%; max-width:1100px; align-items:stretch; }
+.actor-card {
+  flex:1; padding:38px 30px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+  transition:transform .3s, background .3s; cursor:default;
+}
+.actor-card:first-child { border-radius:8px 0 0 8px; }
+.actor-card:last-child  { border-radius:0 8px 8px 0; }
+.actor-card:hover       { background:rgba(255,255,255,.08); transform:translateY(-5px); }
+.actor-ico {
+  width:50px; height:50px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.3rem; margin-bottom:18px;
+}
+.a-role { font-size:.63rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; margin-bottom:6px; }
+.a-name { font-family:'Syne',sans-serif; font-size:1.35rem; font-weight:700; margin-bottom:4px; }
+.a-sub  { font-size:.78rem; color:rgba(255,255,255,.35); margin-bottom:20px; }
+.a-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
+.a-list li {
+  font-size:.83rem; line-height:1.5; color:#fff;
+  padding-left:18px; position:relative;
+}
+.actor-arrow {
+  display:flex; align-items:center; padding:0 6px;
+  color:var(--c-primary); font-size:1.3rem; opacity:.5;
+  align-self:center;
+}
+
+/* ── DEMO PASOS ── */
+.steps-row { display:flex; width:100%; max-width:1100px; }
+.step-btn {
+  flex:1; padding:24px 20px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+  cursor:pointer; transition:all .25s; text-align:left;
+}
+.step-btn:first-child { border-radius:8px 0 0 8px; }
+.step-btn:last-child  { border-radius:0 8px 8px 0; }
+.step-btn:hover:not(.active-step) { background:rgba(255,255,255,.07); }
+.step-btn.active-step {
+  background:rgba(232,98,10,.1); border-color:rgba(232,98,10,.4);
+}
+.step-n {
+  width:28px; height:28px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Syne',sans-serif; font-weight:700; font-size:.8rem;
+  background:rgba(255,255,255,.1); color:rgba(255,255,255,.35);
+  margin-bottom:10px; transition:all .25s;
+}
+.step-btn.active-step .step-n { background:var(--c-primary); color:#fff; }
+.step-lbl {
+  font-family:'Syne',sans-serif; font-size:.78rem; font-weight:700;
+  color:rgba(255,255,255,.4); transition:color .25s;
+}
+.step-btn.active-step .step-lbl { color:#fff; }
+.step-detail-box {
+  width:100%; max-width:1100px;
+  background:rgba(255,255,255,.04); border:1px solid rgba(232,98,10,.22);
+  border-radius:8px; padding:36px; min-height:170px;
+}
+.step-d-title { font-family:'Syne',sans-serif; font-size:1.25rem; font-weight:700; color:var(--c-primary); margin-bottom:10px; }
+.step-d-text  { font-size:.9rem; line-height:1.7; color:#fff; max-width:680px; margin-bottom:16px; }
+.tag-row { display:flex; flex-wrap:wrap; gap:7px; }
+.tag {
+  font-size:.68rem; font-weight:500; letter-spacing:.06em;
+  padding:4px 12px; border-radius:100px;
+}
+.tag-orange { background:rgba(232,98,10,.18); color:var(--c-primary);  border:1px solid rgba(232,98,10,.28); }
+.tag-teal   { background:rgba(0,137,123,.18); color:#4DB6AC;            border:1px solid rgba(0,137,123,.28); }
+.tag-purple { background:rgba(123,31,162,.18); color:#CE93D8;           border:1px solid rgba(123,31,162,.28); }
+
+/* ── APP MOVIL ── */
+.app-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; width:100%; max-width:1000px; }
+.app-col-hdr {
+  font-family:'Syne',sans-serif; font-size:.75rem; font-weight:800;
+  letter-spacing:.12em; text-transform:uppercase;
+  padding:7px 16px; border-radius:4px; display:inline-block; margin-bottom:16px;
+}
+.app-item {
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07);
+  border-radius:6px; padding:18px 22px;
+  transition:border-color .25s; margin-bottom:12px;
+}
+.app-item:hover { border-color:rgba(255,255,255,.14); }
+.app-item-phase { font-family:'Syne',sans-serif; font-size:.82rem; font-weight:700; margin-bottom:5px; }
+.app-item-det   { font-size:.81rem; line-height:1.55; color:#fff; }
+
+/* ── ROADMAP ── */
+.roadmap-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; width:100%; max-width:1100px; position:relative; }
+.roadmap-grid::before {
+  content:''; position:absolute; top:40px; left:15%; right:15%; height:1px;
+  background:linear-gradient(90deg, var(--c-primary), var(--c-secondary)); z-index:0;
+}
+.rm-col { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:8px; padding:30px; position:relative; z-index:1; }
+.rm-col.now  { border-color:rgba(46,125,50,.4);  background:rgba(46,125,50,.07);  }
+.rm-col.soon { border-color:rgba(232,98,10,.4);  background:rgba(232,98,10,.07);  }
+.rm-col.mid  { border-color:rgba(0,137,123,.4);  background:rgba(0,137,123,.07);  }
+.rm-badge {
+  font-family:'Syne',sans-serif; font-size:.68rem; font-weight:800;
+  letter-spacing:.14em; text-transform:uppercase;
+  padding:5px 12px; border-radius:100px; display:inline-block; margin-bottom:6px;
+}
+.rm-col.now  .rm-badge { background:rgba(46,125,50,.3);  color:#81C784; }
+.rm-col.soon .rm-badge { background:rgba(232,98,10,.3);  color:var(--c-primary); }
+.rm-col.mid  .rm-badge { background:rgba(0,137,123,.3);  color:#4DB6AC; }
+.rm-sub { font-size:.76rem; color:rgba(255,255,255,.3); margin-bottom:22px; }
+.rm-list { list-style:none; display:flex; flex-direction:column; gap:11px; }
+.rm-list li { font-size:.83rem; line-height:1.5; color:#fff; padding-left:20px; position:relative; }
+.rm-col.now  .rm-list li::before { content:'✓'; position:absolute; left:0; color:#81C784; font-size:.72rem; }
+.rm-col.soon .rm-list li::before { content:'→'; position:absolute; left:0; color:var(--c-primary); font-size:.72rem; }
+.rm-col.mid  .rm-list li::before { content:'◆'; position:absolute; left:0; color:#4DB6AC; font-size:.5rem; top:5px; }
+
+/* ── CIERRE ── */
+#cierre { text-align:center; }
+.cierre-h1 {
+  font-family:'Syne',sans-serif;
+  font-size:clamp(2.8rem,7vw,6rem); font-weight:800;
+  line-height:.95; letter-spacing:-.04em;
+}
+.cierre-h1 em { color:var(--c-primary); font-style:normal; }
+.cierre-sub { font-size:1rem; font-weight:300; color:rgba(255,255,255,.4); max-width:460px; line-height:1.65; margin:22px auto 44px; }
+.next-grid { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; }
+.next-item {
+  display:flex; align-items:center; gap:10px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+  border-radius:6px; padding:14px 22px;
+  font-size:.86rem; color:rgba(255,255,255,.65);
+  transition:border-color .2s, background .2s;
+}
+.next-item:hover { border-color:rgba(232,98,10,.38); background:rgba(232,98,10,.06); color:#fff; }
+.ni-arrow { color:var(--c-primary); font-weight:700; }
+.cierre-foot { margin-top:56px; font-size:.76rem; color:rgba(255,255,255,.2); letter-spacing:.05em; }
+
+
+/* ── FLUJO DEL PROCESO ── */
+.flujo-row {
+  display: flex; align-items: stretch; justify-content: center;
+  gap: 0; width: 100%; max-width: 1200px; flex-wrap: nowrap;
+}
+.flujo-step {
+  flex: 1; min-width: 0;
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+}
+/* connector line between steps */
+.flujo-step:not(:last-child)::after {
+  content: ''; position: absolute;
+  top: 52px; right: -18px;
+  width: 36px; height: 2px;
+  background: linear-gradient(90deg, var(--c-primary), rgba(232,98,10,.3));
+  z-index: 2;
+}
+.flujo-icon-wrap {
+  width: 80px; height: 80px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; margin-bottom: 16px; position: relative; z-index: 1;
+  border: 2px solid rgba(255,255,255,.08);
+  transition: transform .3s, box-shadow .3s;
+}
+.flujo-step:hover .flujo-icon-wrap {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.3);
+}
+.flujo-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 8px; padding: 20px 16px;
+  width: 100%; text-align: center;
+  transition: border-color .3s, background .3s;
+  flex: 1;
+}
+.flujo-step:hover .flujo-card {
+  border-color: rgba(232,98,10,.35);
+  background: rgba(232,98,10,.05);
+}
+.flujo-card-title {
+  font-family: 'Syne', sans-serif; font-size: .82rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .06em;
+  margin-bottom: 10px; color: var(--c-primary);
+}
+.flujo-card-note {
+  font-size: .72rem; color: rgba(255,255,255,.42);
+  line-height: 1.55; font-style: italic;
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding-top: 10px; margin-top: 8px;
+}
+.flujo-bullets { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.flujo-bullets li {
+  font-size: .75rem; color: #fff;
+  text-align: left; padding-left: 14px; position: relative; line-height: 1.45;
+}
+.flujo-bullets li::before { content:'·'; position:absolute; left:0; color:var(--c-primary); font-weight:700; }
+.flujo-arrow-mobile { display:none; color:var(--c-primary); font-size:1.4rem; margin:8px 0; }
+
+.flujo-img-wrap {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px 48px;
+  box-shadow: 0 24px 64px rgba(0,0,0,.5);
+}
+.flujo-img {
+  width: 100%; height: auto; display: block;
+}
+@media(max-width:900px){
+  .flujo-img-wrap { padding: 20px 16px; }
+}
+
+/* ── ARQUITECTURA LMS → eFTI ── */
+.arq-wrap {
+  width: 100%; max-width: 1100px;
+}
+.arq-col {
+  padding: 32px 28px; display: flex; flex-direction: column; gap: 14px;
+}
+.arq-col.lms   { background: rgba(232,98,10,.08); border-right: 1px solid rgba(255,255,255,.08); }
+.arq-col.core  {
+  background: rgba(255,255,255,.04);
+  border-right: 1px solid rgba(255,255,255,.08);
+  align-items: center; justify-content: center; text-align: center;
+}
+.arq-col.efti  { background: rgba(0,137,123,.08); }
+
+.arq-col-label {
+  font-size: .65rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 100px; display: inline-block; margin-bottom: 6px;
+  align-self: flex-start;
+}
+.arq-col.lms  .arq-col-label { background: rgba(232,98,10,.25); color: var(--c-primary); }
+.arq-col.core .arq-col-label { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); align-self:center; }
+.arq-col.efti .arq-col-label { background: rgba(0,137,123,.25); color: #4DB6AC; }
+
+.arq-col-title {
+  font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700;
+  line-height: 1.2; margin-bottom: 4px;
+}
+.arq-item {
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 6px; padding: 14px 16px;
+  transition: border-color .25s;
+}
+.arq-item:hover { border-color: rgba(255,255,255,.18); }
+.arq-item-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: .72rem;
+  color: #fff; margin-bottom: 8px;
+}
+.arq-col.lms .arq-item-num { background: var(--c-primary); }
+.arq-col.efti .arq-item-num { background: var(--c-secondary); }
+.arq-item-title {
+  font-family: 'Syne', sans-serif; font-size: .85rem; font-weight: 700;
+  margin-bottom: 4px;
+}
+.arq-item-desc {
+  font-size: .77rem; color: rgba(255,255,255,.48); line-height: 1.5;
+}
+.arq-core-name {
+  font-family: 'Syne', sans-serif; font-size: 1.15rem; font-weight: 800;
+  color: #fff; margin: 10px 0 6px;
+}
+.arq-core-sub {
+  font-size: .72rem; color: rgba(255,255,255,.4); margin-bottom: 20px; line-height: 1.5;
+}
+.arq-pill {
+  font-size: .78rem; font-weight: 700; padding: 9px 16px;
+  border-radius: 6px; margin: 4px 0; display: block; text-align: center;
+  transition: background .2s; letter-spacing: .03em;
+}
+.arq-pill:hover { filter: brightness(1.15); }
+.arq-pill.process  { background: rgba(232,98,10,.22);  color: var(--c-primary);  border: 1px solid rgba(232,98,10,.3); }
+.arq-pill.store    { background: rgba(0,137,123,.22);  color: #4DB6AC;            border: 1px solid rgba(0,137,123,.3); }
+.arq-pill.comm     { background: rgba(123,31,162,.22); color: #CE93D8;            border: 1px solid rgba(123,31,162,.3); }
+.arq-badges {
+  display: flex; gap: 8px; margin-top: 12px; justify-content: center; flex-wrap: wrap;
+}
+.arq-badge-icon {
+  width: 40px; height: 40px; border-radius: 8px;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem; font-weight: 700; color: rgba(255,255,255,.5);
+}
+.arq-footer-bar {
+  width: 100%; max-width: 1100px;
+  background: var(--c-primary); border-radius: 6px;
+  padding: 14px 28px; text-align: center;
+  font-family: 'Syne', sans-serif; font-size: .9rem; font-weight: 700; color: #fff;
+  letter-spacing: .02em;
+}
+
+/* ── Timeline (col. izquierda arquitectura) ── */
+.arq-tl-wrap {
+  position: relative;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.arq-tl-wrap::before {
+  content: ''; position: absolute;
+  left: 12px; top: 13px; bottom: 42px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--c-primary), rgba(232,98,10,.2));
+  z-index: 0;
+}
+.arq-tl-item {
+  display: flex; align-items: flex-start; gap: 14px; position: relative;
+}
+.arq-tl-num {
+  width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+  background: var(--c-primary); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: .78rem;
+  z-index: 1; box-shadow: 0 0 0 4px rgba(232,98,10,.15);
+}
+.arq-tl-body {
+  flex: 1;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 6px; padding: 12px 14px;
+  transition: border-color .25s;
+}
+.arq-tl-body:hover { border-color: rgba(255,255,255,.18); }
+.arq-tl-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.arq-tl-icon { font-size: 1.4rem; opacity: .55; flex-shrink: 0; margin-top: 2px; }
+.arq-tl-title { font-family: 'Syne', sans-serif; font-size: .85rem; font-weight: 700; margin-bottom: 4px; }
+.arq-tl-desc  { font-size: .77rem; color: rgba(255,255,255,.48); line-height: 1.5; }
+
+/* DeCa badge */
+.arq-deca-badge {
+  display: inline-block; margin-left: 8px;
+  font-size: .6rem; font-weight: 800; letter-spacing: .1em;
+  padding: 2px 7px; border-radius: 4px;
+  background: rgba(232,98,10,.3); color: var(--c-primary);
+  vertical-align: middle;
+}
+
+/* Descripción col. central */
+.arq-core-desc {
+  font-size: .74rem; color: rgba(255,255,255,.38); line-height: 1.55;
+  margin-bottom: 6px; padding: 0 4px;
+}
+
+/* Conector flecha entre items eFTI */
+.arq-efti-connector {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-secondary); font-size: 1rem; opacity: .65; padding: 2px 0;
+}
+
+/* Tags y badges col. derecha */
+.arq-eu-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .67rem; font-weight: 600; letter-spacing: .03em;
+  padding: 3px 9px; border-radius: 4px; margin-top: 8px;
+  background: rgba(0,137,123,.18); color: #4DB6AC;
+  border: 1px solid rgba(0,137,123,.28);
+}
+.arq-simple-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: .78rem; font-weight: 800; letter-spacing: .06em;
+  padding: 5px 12px; border-radius: 6px; margin-top: 8px;
+  background: rgba(255,255,255,.07); color: #fff;
+  border: 1.5px solid rgba(255,255,255,.22);
+}
+.arq-simple-dots { display: flex; gap: 3px; }
+.arq-simple-dots span { width: 5px; height: 5px; border-radius: 50%; background: var(--c-secondary); }
+.arq-xborder-tag {
+  display: inline-block;
+  font-size: .64rem; padding: 2px 8px; border-radius: 4px; margin-top: 6px;
+  background: rgba(0,137,123,.14); color: #4DB6AC;
+  border: 1px solid rgba(0,137,123,.22);
+}
+
+/* QR mini */
+.arq-qr-wrap { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.arq-qr-svg  { border-radius: 4px; background: #fff; padding: 3px; flex-shrink: 0; }
+.arq-qr-note { font-size: .71rem; color: rgba(255,255,255,.42); line-height: 1.45; }
+
+@media(max-width:900px){
+  .flujo-row { flex-direction:column; align-items:center; gap:8px; }
+  .flujo-step::after { display:none; }
+  .flujo-arrow-mobile { display:block; }
+  .arq-wrap { grid-template-columns:1fr; }
+  .arq-col { border-right:none!important; border-bottom:1px solid rgba(255,255,255,.08); }
+}
+
+
+@keyframes fadeUp  { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+@keyframes bounce  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  section{ padding:100px 24px 60px; }
+  nav{ padding:16px 24px; }
+  #nav-links{ display:none; }
+  .reg-grid,.app-grid,.roadmap-grid{ grid-template-columns:1fr; }
+  .actors-row{ flex-direction:column; gap:12px; }
+  .actor-card{ border-radius:8px!important; }
+  .actor-arrow{ display:none; }
+  .steps-row{ flex-direction:column; gap:8px; }
+  .step-btn{ border-radius:6px!important; }
+  .roadmap-grid::before{ display:none; }
+}
+</style>
+</head>
+<body>
+
+<div id="pb"></div>
+
+<!-- NAV (generado por JS) -->
+<nav>
+  <div id="nav-brand"></div>
+  <ul id="nav-links"></ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="s-dark">
+  <div class="hero-eye" id="hero-eye"></div>
+  <h1 class="hero-h1" id="hero-h1"></h1>
+  <p class="hero-sub-txt" id="hero-sub"></p>
+  <div class="hero-cta" id="hero-cta"></div>
+  <div class="hero-scroll"><div class="scroll-ln"></div>scroll</div>
+</section>
+
+<!-- REGULACION -->
+<section id="regulacion" class="s-deep">
+  <div class="s-hdr rv" id="reg-hdr"></div>
+  <div class="reg-grid rv" id="reg-grid"></div>
+  <div class="reg-note rv" id="reg-note"></div>
+</section>
+
+<!-- ACTORES -->
+<section id="actores" class="s-dark">
+  <div class="s-hdr rv" id="act-hdr"></div>
+  <div class="actors-row rv" id="actors-row"></div>
+</section>
+
+<!-- FLUJO DEL PROCESO -->
+<section id="flujo" class="s-deep">
+  <div class="s-hdr rv" id="flujo-hdr"></div>
+  <div class="flujo-row rv" id="flujo-row"></div>
+</section>
+
+<!-- ARQUITECTURA LMS → eFTI -->
+<section id="arquitectura" class="s-dark">
+  <div class="s-hdr rv" id="arq-hdr"></div>
+  <div class="arq-wrap rv" id="arq-wrap"></div>
+  <div class="arq-footer rv" id="arq-footer"></div>
+</section>
+
+<!-- DEMO PORTAL -->
+<section id="demo" class="s-deep">
+  <div class="s-hdr rv" id="demo-hdr"></div>
+  <div class="steps-row rv" id="steps-row"></div>
+  <div class="step-detail-box rv" id="step-detail"></div>
+</section>
+
+<!-- APP MOVIL -->
+<section id="app" class="s-dark">
+  <div class="s-hdr rv" id="app-hdr"></div>
+  <div class="app-grid rv" id="app-grid"></div>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="s-deep">
+  <div class="s-hdr rv" id="rm-hdr"></div>
+  <div class="roadmap-grid rv" id="rm-grid"></div>
+</section>
+
+<!-- CIERRE -->
+<section id="cierre" class="s-black">
+  <div class="rv" id="cierre-content"></div>
+</section>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   MOTOR DE RENDERIZADO
+   ═══════════════════════════════════════════════════════ */
+
+const NAV_SECTIONS = ['regulacion','actores','flujo','arquitectura','demo','app','roadmap'];
+let activeCfg = CFG;
+let tickInterval = null;
+const cdIds = [];
+
+/* ── IntersectionObserver (reveal on scroll) ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.12 });
+
+/* ── Countdown ── */
+function tick(){
+  cdIds.forEach(({uid, deadline}) => {
+    const diff = deadline - Date.now();
+    ['d','h','m'].forEach(x => { const el = document.getElementById(`${uid}-${x}`); if(el && diff<=0) el.textContent='0'; });
+    if(diff <= 0) return;
+    const d = Math.floor(diff/864e5);
+    const h = Math.floor((diff%864e5)/36e5);
+    const m = Math.floor((diff%36e5)/6e4);
+    const ed = document.getElementById(`${uid}-d`), eh = document.getElementById(`${uid}-h`), em = document.getElementById(`${uid}-m`);
+    if(ed) ed.textContent = String(d).padStart(3,'0');
+    if(eh) eh.textContent = String(h).padStart(2,'0');
+    if(em) em.textContent = String(m).padStart(2,'0');
+  });
+}
+
+/* ── setStep (demo tabs) ── */
+function setStep(i){
+  document.querySelectorAll('.step-btn').forEach((b,j)=>b.classList.toggle('active-step',j===i));
+  const s = activeCfg.demo.steps[i];
+  const tags = (s.tags||[]).map(t=>`<span class="tag tag-${t.color}">${t.label}</span>`).join('');
+  document.getElementById('step-detail').innerHTML =
+    `<div class="step-d-title">${s.title}</div>
+     <p class="step-d-text">${s.desc}</p>
+     <div class="tag-row">${tags}</div>`;
+}
+
+/* ── switchLang ── */
+function switchLang(){ renderAll(activeCfg === CFG ? CFG_EN : CFG); }
+
+/* ══════════════════════════════════════════════════════════════════
+   renderAll(cfg) — renderiza toda la presentación con el cfg dado
+   ══════════════════════════════════════════════════════════════════ */
+function renderAll(cfg){
+  activeCfg = cfg;
+  const isEN = cfg === CFG_EN;
+
+  /* CSS vars */
+  const r = document.documentElement.style;
+  r.setProperty('--c-primary',   cfg.brand.colorPrimary);
+  r.setProperty('--c-secondary', cfg.brand.colorSecondary);
+  r.setProperty('--c-dark',      cfg.brand.colorDark);
+
+  /* ── NAV ── */
+  document.getElementById('nav-brand').innerHTML =
+    cfg.brand.name.split(' ').map((w,i) => i===1 ? `<em>${w}</em>` : w).join(' ');
+  document.getElementById('nav-links').innerHTML =
+    NAV_SECTIONS.map((id,i) => `<li><a href="#${id}">${cfg.nav.labels[i]}</a></li>`).join('') +
+    `<li><button class="lang-btn" onclick="switchLang()">${isEN ? 'ES' : 'EN'}</button></li>`;
+
+  /* ── HERO ── */
+  document.getElementById('hero-eye').textContent = cfg.hero.eyebrow;
+  document.getElementById('hero-h1').innerHTML = `${cfg.hero.title} <em>${cfg.hero.titleEM}</em>`;
+  document.getElementById('hero-sub').textContent = cfg.hero.subtitle;
+  document.getElementById('hero-cta').innerHTML =
+    `<a href="${cfg.hero.ctaPrimary.href}"  class="btn-p">${cfg.hero.ctaPrimary.label}</a>
+     <a href="${cfg.hero.ctaSecondary.href}" class="btn-o">${cfg.hero.ctaSecondary.label}</a>`;
+
+  /* ── REGULACION ── */
+  document.getElementById('reg-hdr').innerHTML =
+    `<div class="s-label">${cfg.regulacion.sectionLabel}</div>
+     <h2 class="s-title">${cfg.regulacion.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>`;
+
+  cdIds.length = 0;
+  document.getElementById('reg-grid').innerHTML = cfg.regulacion.cards.map((c,i) => {
+    const uid = `cd${i}`;
+    cdIds.push({ uid, deadline: c.deadline });
+    const bg = `linear-gradient(135deg, ${c.accentColor}22 0%, ${c.accentColor}08 100%)`;
+    const border = `1px solid ${c.accentColor}55`;
+    const lblDays = isEN ? 'days' : 'días';
+    const lblHrs  = isEN ? 'hours' : 'horas';
+    return `
+    <div class="reg-card" style="background:${bg};border:${border}">
+      <span class="reg-flag">${c.flag}</span>
+      <div class="reg-name">${c.title}</div>
+      <div class="reg-sub">${c.subtitle}</div>
+      <div class="cd-row">
+        <div class="cd-unit"><span class="cd-n" id="${uid}-d" style="color:${c.accentColor}">—</span><span class="cd-lbl">${lblDays}</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-n" id="${uid}-h" style="color:${c.accentColor}">—</span><span class="cd-lbl">${lblHrs}</span></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-unit"><span class="cd-n" id="${uid}-m" style="color:${c.accentColor}">—</span><span class="cd-lbl">mins</span></div>
+      </div>
+      <ul class="reg-list">
+        ${c.bullets.map(b=>`<li style="--acc:${c.accentColor}"
+          onmouseover="this.style.color='#fff'"
+          onmouseout="this.style.color=''">${b}</li>`).join('')}
+      </ul>
+      <span class="reg-badge" style="background:${c.accentColor}30;color:${c.accentColor};border:1px solid ${c.accentColor}40">${c.deadlineLabel}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('reg-note').innerHTML =
+    cfg.regulacion.bottomNote
+      ? `<div class="reg-note">${cfg.regulacion.bottomNote.replace(/(Zeus eDoc[^—]*)/,'<strong>$1</strong>')}</div>`
+      : '';
+
+  tick();
+  if(tickInterval) clearInterval(tickInterval);
+  tickInterval = setInterval(tick, 30000);
+
+  /* ── ACTORES ── */
+  document.getElementById('act-hdr').innerHTML =
+    `<div class="s-label">${cfg.actores.sectionLabel}</div>
+     <h2 class="s-title">${cfg.actores.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>
+     <p class="s-sub" style="text-align:center;margin:10px auto 0">${cfg.actores.subtitle}</p>`;
+
+  document.getElementById('actors-row').innerHTML = cfg.actores.items.map((a,i,arr) => {
+    const arrow = i < arr.length-1 ? `<div class="actor-arrow" style="color:${a.color}">→</div>` : '';
+    return `
+    <div class="actor-card" style="border-top:3px solid ${a.color}">
+      <div class="actor-ico" style="background:${a.color}28">${a.emoji}</div>
+      <div class="a-role" style="color:${a.color}">${a.role}</div>
+      <div class="a-name">${a.role}</div>
+      <div class="a-sub">${a.sub}</div>
+      <ul class="a-list">
+        ${a.bullets.map(b=>`<li style="padding-left:18px">
+          <span style="position:absolute;left:0;color:${a.color};font-size:.75rem">✓</span>${b}
+        </li>`).join('')}
+      </ul>
+    </div>${arrow}`;
+  }).join('');
+
+  /* ── FLUJO ── */
+  document.getElementById('flujo-hdr').innerHTML =
+    `<div class="s-label">${cfg.flujo.sectionLabel}</div>
+     <h2 class="s-title">${cfg.flujo.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>
+     <p class="s-sub" style="text-align:center;margin:10px auto 0">${cfg.flujo.subtitle}</p>`;
+
+  document.getElementById('flujo-row').innerHTML =
+    `<div class="flujo-img-wrap">
+       <img src="img/img2.png" alt="${cfg.flujo.sectionTitle}" class="flujo-img">
+     </div>`;
+
+  /* ── ARQUITECTURA ── */
+  document.getElementById('arq-hdr').innerHTML =
+    `<div class="s-label">${cfg.arquitectura.sectionLabel}</div>
+     <h2 class="s-title">${cfg.arquitectura.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>
+     <p class="s-sub" style="text-align:center;margin:10px auto 0">${cfg.arquitectura.subtitle}</p>`;
+
+  document.getElementById('arq-wrap').innerHTML =
+    `<div class="flujo-img-wrap">
+       <img src="img/img3.png" alt="${cfg.arquitectura.sectionTitle}" class="flujo-img">
+     </div>`;
+
+  document.getElementById('arq-footer').innerHTML =
+    `<div class="arq-footer-bar">${cfg.arquitectura.footerBar}</div>`;
+
+  /* ── DEMO PASOS ── */
+  document.getElementById('demo-hdr').innerHTML =
+    `<div class="s-label">${cfg.demo.sectionLabel}</div>
+     <h2 class="s-title">${cfg.demo.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>
+     <p class="s-sub" style="text-align:center;margin:10px auto 0">${cfg.demo.subtitle}</p>`;
+
+  document.getElementById('steps-row').innerHTML = cfg.demo.steps.map((s,i) =>
+    `<div class="step-btn ${i===0?'active-step':''}" onclick="setStep(${i})">
+      <div class="step-n">${i+1}</div>
+      <div class="step-lbl">${s.short}</div>
+    </div>`
+  ).join('');
+  setStep(0);
+
+  /* ── APP MOVIL ── */
+  document.getElementById('app-hdr').innerHTML =
+    `<div class="s-label">${cfg.appMovil.sectionLabel}</div>
+     <h2 class="s-title">${cfg.appMovil.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>`;
+
+  document.getElementById('app-grid').innerHTML = cfg.appMovil.cols.map(col => `
+    <div>
+      <div class="app-col-hdr" style="background:${col.color}28;color:${col.color}">${col.title}</div>
+      ${col.steps.map(s=>`
+        <div class="app-item">
+          <div class="app-item-phase" style="color:${col.color}">${s.phase}</div>
+          <div class="app-item-det">${s.detail}</div>
+        </div>`).join('')}
+    </div>`).join('');
+
+  /* ── ROADMAP ── */
+  document.getElementById('rm-hdr').innerHTML =
+    `<div class="s-label">${cfg.roadmap.sectionLabel}</div>
+     <h2 class="s-title">${cfg.roadmap.sectionTitle.replace(/\n/g,'<br>')}</h2>
+     <div class="accent-line accent-line-center"></div>`;
+
+  document.getElementById('rm-grid').innerHTML = cfg.roadmap.phases.map(p => `
+    <div class="rm-col ${p.style}">
+      <span class="rm-badge">${p.phase}</span>
+      <div class="rm-sub">${p.sub}</div>
+      <ul class="rm-list">${p.items.map(item=>`<li>${item}</li>`).join('')}</ul>
+    </div>`).join('');
+
+  /* ── CIERRE ── */
+  const ns = cfg.cierre.nextSteps.map(n =>
+    `<div class="next-item"><span class="ni-arrow">→</span>${n}</div>`).join('');
+  document.getElementById('cierre-content').innerHTML = `
+    <h2 class="cierre-h1">${cfg.cierre.title}${cfg.cierre.titleEM?` <em>${cfg.cierre.titleEM}</em>`:''}</h2>
+    <p class="cierre-sub">${cfg.cierre.subtitle}</p>
+    <div class="next-grid">${ns}</div>
+    <div class="cierre-foot">${cfg.brand.company} · ${cfg.brand.contact} · ${cfg.brand.date}</div>`;
+
+  /* Re-observar reveal elements */
+  document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+}
+
+/* ── Arranque ── */
+renderAll(CFG);
+
+/* ── SCROLL: progress bar + nav active ── */
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('pb').style.width = pct + '%';
+  let cur = '';
+  document.querySelectorAll('section[id]').forEach(s => { if(window.scrollY >= s.offsetTop - 200) cur = s.id; });
+  document.querySelectorAll('#nav-links a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+cur));
+}, { passive: true });
+</script>
+</body>
+</html>
