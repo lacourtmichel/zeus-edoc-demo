@@ -213,7 +213,6 @@ const CFG = {
           "Integración PoD Chronos/Ares",
           "API de integración PoD del cliente",
           "API bulk para expedidores de alto volumen",
-          "ZetesConfidens",
         ],
       },
       {
@@ -323,7 +322,7 @@ const CFG_EN = {
         ],
       },
     ],
-    bottomNote: "Zeus eDoc covers the SML today (Phase 1 handwritten + Phase 2 SealSign OTP) and is built on the architecture that enables eFTI certification — without changing platforms.",
+    bottomNote: "Zeus eDoc complies with the digitization of the Transport Control Document and is built on the architecture that allows achieving eFTI certification — without needing to change platforms.",
   },
   actores: {
     sectionLabel: "02 — Actors & Flows",
@@ -469,7 +468,6 @@ const CFG_EN = {
           "Chronos/Ares PoD integration",
           "Customer PoD API integration",
           "Bulk API for high-volume shippers",
-          "ZetesConfidens",
         ],
       },
       {
@@ -963,7 +961,7 @@ section {
   letter-spacing: .06em; text-transform: uppercase;
 }
 
-/* ── Timeline (col. izquierda arquitectura) ── */
+/* ── Timeline  ── */
 .arq-tl-wrap {
   position: relative;
   display: flex; flex-direction: column; gap: 12px;
@@ -1144,9 +1142,7 @@ section {
 </section>
 
 <script>
-/* ═══════════════════════════════════════════════════════
-   MOTOR DE RENDERIZADO
-   ═══════════════════════════════════════════════════════ */
+/* MOTOR DE RENDERIZADO */
 
 const NAV_SECTIONS = ['regulacion','actores','flujo','arquitectura','demo','app','roadmap'];
 let activeCfg = CFG;
@@ -1188,9 +1184,7 @@ function setStep(i){
 /* ── switchLang ── */
 function switchLang(){ renderAll(activeCfg === CFG ? CFG_EN : CFG); }
 
-/* ══════════════════════════════════════════════════════════════════
-   renderAll(cfg) — renderiza toda la presentación con el cfg dado
-   ══════════════════════════════════════════════════════════════════ */
+/* renderAll(cfg)  */
 function renderAll(cfg){
   activeCfg = cfg;
   const isEN = cfg === CFG_EN;
