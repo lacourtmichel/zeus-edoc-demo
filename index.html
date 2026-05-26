@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Demo Interactiva — Zeus eDoc</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
 <script>
 /* CONFIGURACIÓN */
@@ -18,9 +17,9 @@ const CFG = {
     contact:  "michel.salazar@es.zetes.com & jose.fanego@es.zetes.com",
     date:     "Mayo 2026",
     /* colores del tema */
-    colorPrimary:   "#ed6d02",   /* naranja Zetes          */
-    colorSecondary: "#00897B",   /* teal                   */
-    colorDark:      "#002147",   /* azul Zetes oscuro      */
+    colorPrimary:   "#ed6d05",   /* naranja Zetes          */
+    colorSecondary: "#38a5d9",   /* azul clarito           */
+    colorDark:      "#002d72",   /* azul Zetes oscuro      */
   },
 
   /* ── Hero ──────────────────────────────────────────────────── */
@@ -60,7 +59,7 @@ const CFG = {
         subtitle: "Reglamento (UE) 2020/1056 · Aplicación plena Julio 2027",
         deadline: new Date("2027-07-09T00:00:00"),
         deadlineLabel: "Aplicación plena: 9 Jul 2027",
-        accentColor: "#00897B",
+        accentColor: "#81C784",
         bullets: [
           "Marco europeo para todos los modos de transporte",
           "Autoridades obligadas a aceptar datos de plataformas certificadas",
@@ -95,7 +94,7 @@ const CFG = {
         emoji: "🚛",
         role:  "Transportista",
         sub:   "Carrier",
-        color: "#00897B",
+        color: "#38a5d9",
         bullets: [
           "Con App: se autentica con matrícula + OTP",
           "Sin App: recibe enlace de firma vía WhatsApp",
@@ -107,7 +106,7 @@ const CFG = {
         emoji: "📬",
         role:  "Destinatario",
         sub:   "Consignatario",
-        color: "#7B1FA2",
+        color: "#81C784",
         bullets: [
           "Firma la recepción de mercancía en entrega",
           "Opción A: firma en el teléfono del transportista",
@@ -164,7 +163,7 @@ const CFG = {
     cols: [
       {
         title: "Transportista",
-        color: "#00897B",
+        color: "#38a5d9",
         steps: [
           { phase: "1. Autenticación",          detail: "Introduce matrícula del vehículo + código OTP recibido por SMS" },
           { phase: "2. Lista de documentos",    detail: "Documentos pendientes con estado · Filtro por completados" },
@@ -176,7 +175,7 @@ const CFG = {
       },
       {
         title: "Destinatario",
-        color: "#7B1FA2",
+        color: "#ed6d05",
         steps: [
           { phase: "Opción A — Dispositivo del transportista", detail: "El destinatario firma directamente en el teléfono del transportista in situ. Sin instalación ni cuenta." },
           { phase: "Opción B — Dispositivo propio",            detail: "Recibe enlace por SMS / WhatsApp / email · Abre en navegador · Firma con o sin eIDAS." },
@@ -253,6 +252,7 @@ const CFG = {
     sectionLabel: "02b — Flujo del Proceso",
     sectionTitle: "¿Cómo funciona\nen la práctica?",
     subtitle:     "Del sistema del expedidor a la inspección de tráfico — todo digital, sin papel",
+    img:          "img/img2_es.png",
   },
 
   /* ── Sección Arquitectura ──────────────────────────────── */
@@ -261,6 +261,7 @@ const CFG = {
     sectionTitle: "Cumple hoy.\nPrepárate para mañana.",
     subtitle:     "Zeus eDoc conecta el flujo documental nacional con una arquitectura certificada, preparada para escalar hacia eFTI y futuras regulaciones europeas",
     footerBar:    "Mismo punto de acceso para verificar, inspeccionar y escalar",
+    img:          "img/img3_es.png",
   },
 };
 
@@ -275,9 +276,9 @@ const CFG_EN = {
     company:        "Zetes Spain",
     contact:        "michel.salazar@es.zetes.com & jose.fanego@es.zetes.com",
     date:           "May 2026",
-    colorPrimary:   "#ed6d02",
-    colorSecondary: "#00897B",
-    colorDark:      "#002147",
+    colorPrimary:   "#ed6d05",
+    colorSecondary: "#38a5d9",
+    colorDark:      "#002d72",
   },
   hero: {
     eyebrow:     "Zetes Spain · Interactive Demo",
@@ -312,7 +313,7 @@ const CFG_EN = {
         subtitle:      "Regulation (EU) 2020/1056 · Full application July 2027",
         deadline:      new Date("2027-07-09T00:00:00"),
         deadlineLabel: "Full application: 9 Jul 2027",
-        accentColor:   "#00897B",
+        accentColor:   "#81C784",
         bullets: [
           "European framework for all modes of transport",
           "Authorities required to accept data from certified platforms",
@@ -345,7 +346,7 @@ const CFG_EN = {
         emoji: "🚛",
         role:  "Carrier",
         sub:   "Transport Operator",
-        color: "#00897B",
+        color: "#38a5d9",
         bullets: [
           "With App: authenticates with plate number + OTP",
           "Without App: receives signing link via WhatsApp",
@@ -357,7 +358,7 @@ const CFG_EN = {
         emoji: "📬",
         role:  "Receiver",
         sub:   "Consignee",
-        color: "#7B1FA2",
+        color: "#81C784",
         bullets: [
           "Signs receipt of goods upon delivery",
           "Option A: signs on the carrier's phone",
@@ -371,12 +372,14 @@ const CFG_EN = {
     sectionLabel: "02b — Process Flow",
     sectionTitle: "How does it work\nin practice?",
     subtitle:     "From the shipper's system to traffic inspection — fully digital, no paper",
+    img:          "img/img2_en.png",
   },
   arquitectura: {
     sectionLabel: "03 — Architecture",
     sectionTitle: "Compliant today.\nReady for tomorrow.",
     subtitle:     "Zeus eDoc connects the national document flow with a certified architecture, ready to scale towards eFTI and future European regulations",
     footerBar:    "Single access point to verify, inspect and scale",
+    img:          "img/img3_en.png",
   },
   demo: {
     sectionLabel: "04 — Web Portal Demo",
@@ -421,7 +424,7 @@ const CFG_EN = {
     cols: [
       {
         title: "Carrier",
-        color: "#00897B",
+        color: "#38a5d9",
         steps: [
           { phase: "1. Authentication",       detail: "Enter vehicle plate number + OTP code received by SMS" },
           { phase: "2. Document list",         detail: "Pending documents with status · Filter by completed" },
@@ -501,17 +504,23 @@ const CFG_EN = {
 </script>
 
 <style>
+@font-face { font-family:'ZetesFont'; src:url('fonts/ZETESFONT.TTF') format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'DIN'; src:url('fonts/DIN-L___.TTF')   format('truetype'); font-weight:300; font-style:normal; }
+@font-face { font-family:'DIN'; src:url('fonts/DIN-RG__.TTF')   format('truetype'); font-weight:400; font-style:normal; }
+@font-face { font-family:'DIN'; src:url('fonts/DIN-M___.TTF')   format('truetype'); font-weight:500; font-style:normal; }
+@font-face { font-family:'DIN'; src:url('fonts/DIN-BOLD.TTF')   format('truetype'); font-weight:700; font-style:normal; }
+@font-face { font-family:'DIN'; src:url('fonts/DIN-BL__.TTF')   format('truetype'); font-weight:900; font-style:normal; }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Barlow', sans-serif;
-  background: var(--c-dark);
-  color: #fff;
+  font-family: 'DIN', sans-serif;
+  background: #efefef;
+  color: #474a4b;
   overflow-x: hidden;
-  --c-primary:   #ed6d02;
-  --c-secondary: #00897B;
-  --c-dark:      #002147;
-  --c-zetes:     #004283;
+  --c-primary:   #ed6d05;
+  --c-secondary: #38a5d9;
+  --c-text-dark: #474a4b;
 }
 
 /* Progress bar */
@@ -522,12 +531,11 @@ nav {
   position:fixed; top:0; left:0; right:0; z-index:100;
   display:flex; align-items:center; justify-content:space-between;
   padding:18px 52px;
-  background:rgba(0,21,48,.92); backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(0,45,114,.95); backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
-#nav-brand {
-  font-family:'Barlow Condensed',sans-serif; font-size:1.25rem; font-weight:800;
-  letter-spacing:.02em; text-transform:uppercase;
+#nav-brand img {
+  height:32px; width:auto; display:block;
 }
 #nav-brand em { font-style:normal; color:var(--c-primary); }
 #nav-links { display:flex; gap:28px; list-style:none; }
@@ -538,7 +546,7 @@ nav {
 #nav-links a:hover, #nav-links a.active { color:var(--c-primary); }
 .lang-btn {
   background:none; border:1px solid rgba(255,255,255,.22); color:rgba(255,255,255,.6);
-  cursor:pointer; font-family:'Barlow',sans-serif; font-size:.78rem; font-weight:600;
+  cursor:pointer; font-family:'DIN',sans-serif; font-size:.78rem; font-weight:600;
   letter-spacing:.06em; padding:5px 16px; border-radius:30px;
   transition:border-color .2s, color .2s, background .2s;
 }
@@ -552,9 +560,8 @@ section {
   padding:128px 64px 80px; position:relative; overflow:hidden;
   gap:56px;
 }
-.s-dark  { background: var(--c-dark); }
-.s-deep  { background: #001535; }
-.s-black { background: #000d22; }
+.s-light { background: #efefef; color: #474a4b; }
+.s-dark  { background: #01457e; color: #fff; }
 
 /* Section header */
 .s-label {
@@ -562,7 +569,7 @@ section {
   color:var(--c-primary); margin-bottom:10px;
 }
 .s-title {
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:'DIN',sans-serif;
   font-size:clamp(2rem,3.8vw,3.2rem); font-weight:800;
   line-height:1.05; letter-spacing:-.01em; white-space:pre-line;
 }
@@ -579,12 +586,68 @@ section {
 .rv { opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
 .rv.vis { opacity:1; transform:none; }
 
+/* ── Overrides para secciones claras (s-light) ── */
+.s-light .s-title        { color: #002d72; }
+.s-light .s-sub          { color: rgba(71,74,75,.65); }
+.s-light .s-label        { color: var(--c-primary); }
+.s-light .hero-h1        { color: #002d72; }
+.s-light .hero-sub-txt   { color: rgba(71,74,75,.65); }
+.s-light .hero-scroll    { color: rgba(71,74,75,.4); }
+.s-light .btn-o {
+  border-color: rgba(1,69,126,.3); color: rgba(1,69,126,.75);
+}
+.s-light .btn-o:hover    { border-color: var(--c-primary); color: #002d72; }
+
+.s-light .reg-list li,
+.s-light .a-list li,
+.s-light .rm-list li,
+.s-light .flujo-bullets li,
+.s-light .app-item-det,
+.s-light .step-d-text    { color: #474a4b; }
+
+.s-light .reg-sub,
+.s-light .a-sub,
+.s-light .rm-sub         { color: rgba(71,74,75,.55); }
+
+.s-light .step-d-title   { color: #002d72; }
+.s-light .cd-sep         { color: rgba(71,74,75,.2); }
+.s-light .cd-lbl         { color: rgba(71,74,75,.45); }
+
+.s-light .reg-card,
+.s-light .actor-card,
+.s-light .step-btn,
+.s-light .step-detail-box,
+.s-light .app-item,
+.s-light .rm-col,
+.s-light .flujo-card {
+  background: #fff;
+  border-color: #ddd;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+.s-light .actor-card:hover { background: #f7f9fc; border-color: rgba(1,69,126,.3); }
+.s-light .step-btn:hover:not(.active-step) { background: #f5f5f5; }
+.s-light .step-btn.active-step { background: rgba(237,109,5,.07); border-color: rgba(237,109,5,.35); }
+.s-light .step-lbl       { color: rgba(71,74,75,.5); }
+.s-light .step-btn.active-step .step-lbl { color: #474a4b; }
+.s-light .step-n         { background: rgba(71,74,75,.12); color: rgba(71,74,75,.45); }
+.s-light .step-btn.active-step .step-n { background: var(--c-primary); color: #fff; }
+
+.s-light .a-sub          { color: rgba(71,74,75,.45); }
+.s-light .reg-note { background: rgba(237,109,5,.07); border-color: rgba(237,109,5,.2); color: #474a4b; }
+.s-light .reg-note strong { color: var(--c-primary); }
+
+.s-light .flujo-img-wrap { box-shadow: 0 8px 32px rgba(0,0,0,.12); }
+.s-light .rm-col.now  { background: rgba(46,125,50,.06); }
+.s-light .rm-col.soon { background: rgba(237,109,2,.06); }
+.s-light .rm-col.mid  { background: rgba(0,137,123,.06); }
+.s-light .actor-arrow { color: var(--c-primary); }
+
 /* ── HERO ── */
 #hero {
   background:
-    radial-gradient(ellipse 80% 55% at 65% 35%, rgba(237,109,2,.13) 0%, transparent 65%),
-    radial-gradient(ellipse 50% 50% at 8%  80%, rgba(0,137,123,.1)  0%, transparent 60%),
-    var(--c-dark);
+    radial-gradient(ellipse 80% 55% at 65% 35%, rgba(237,109,5,.1)  0%, transparent 65%),
+    radial-gradient(ellipse 50% 50% at 8%  80%, rgba(56,165,217,.1)  0%, transparent 60%),
+    #efefef;
   text-align:center;
 }
 .hero-eye {
@@ -593,7 +656,7 @@ section {
   opacity:0; animation:fadeUp .8s .2s ease forwards;
 }
 .hero-h1 {
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:'DIN',sans-serif;
   font-size:clamp(3.2rem,8vw,7rem); font-weight:800;
   line-height:.95; letter-spacing:-.02em; max-width:900px;
   opacity:0; animation:fadeUp .9s .35s ease forwards;
@@ -611,7 +674,7 @@ section {
 .btn-p {
   background:var(--c-primary); color:#fff;
   padding:12px 34px; border-radius:30px;
-  font-family:'Barlow',sans-serif; font-size:.88rem; font-weight:600;
+  font-family:'DIN',sans-serif; font-size:.88rem; font-weight:600;
   text-decoration:none; letter-spacing:.04em; text-transform:uppercase;
   transition:transform .2s, box-shadow .2s;
 }
@@ -619,7 +682,7 @@ section {
 .btn-o {
   border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.65);
   padding:12px 34px; border-radius:30px;
-  font-family:'Barlow',sans-serif; font-size:.88rem; font-weight:500;
+  font-family:'DIN',sans-serif; font-size:.88rem; font-weight:500;
   text-decoration:none; letter-spacing:.04em; text-transform:uppercase;
   transition:border-color .2s, color .2s;
 }
@@ -641,13 +704,13 @@ section {
 }
 .reg-card:hover { transform:translateY(-4px); box-shadow:0 8px 32px rgba(0,0,0,.4); }
 .reg-flag { font-size:2rem; margin-bottom:14px; display:block; }
-.reg-name { font-family:'Barlow Condensed',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:4px; letter-spacing:.02em; }
+.reg-name { font-family:'DIN',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:4px; letter-spacing:.02em; }
 .reg-sub  { font-size:.78rem; color:rgba(255,255,255,.38); margin-bottom:22px; }
 .cd-row   { display:flex; gap:10px; align-items:flex-end; margin-bottom:22px; }
 .cd-unit  { text-align:center; }
-.cd-n     { font-family:'Barlow Condensed',sans-serif; font-weight:800; font-size:2.8rem; line-height:1; display:block; }
+.cd-n     { font-family:'DIN',sans-serif; font-weight:800; font-size:2.8rem; line-height:1; display:block; }
 .cd-lbl   { font-size:.58rem; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.3); display:block; margin-top:3px; }
-.cd-sep   { font-family:'Barlow Condensed',sans-serif; font-size:2rem; font-weight:300; color:rgba(255,255,255,.18); padding-bottom:10px; }
+.cd-sep   { font-family:'DIN',sans-serif; font-size:2rem; font-weight:300; color:rgba(255,255,255,.18); padding-bottom:10px; }
 .reg-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
 .reg-list li {
   font-size:.86rem; line-height:1.55; color:#fff;
@@ -683,7 +746,7 @@ section {
   font-size:1.3rem; margin-bottom:18px;
 }
 .a-role { font-size:.63rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; margin-bottom:6px; }
-.a-name { font-family:'Barlow Condensed',sans-serif; font-size:1.4rem; font-weight:700; margin-bottom:4px; letter-spacing:.02em; }
+.a-name { font-family:'DIN',sans-serif; font-size:1.4rem; font-weight:700; margin-bottom:4px; letter-spacing:.02em; }
 .a-sub  { font-size:.78rem; color:rgba(255,255,255,.35); margin-bottom:20px; }
 .a-list { list-style:none; display:flex; flex-direction:column; gap:9px; }
 .a-list li {
@@ -712,13 +775,13 @@ section {
 .step-n {
   width:28px; height:28px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
-  font-family:'Barlow Condensed',sans-serif; font-weight:700; font-size:.84rem;
+  font-family:'DIN',sans-serif; font-weight:700; font-size:.84rem;
   background:rgba(255,255,255,.1); color:rgba(255,255,255,.35);
   margin-bottom:10px; transition:all .25s;
 }
 .step-btn.active-step .step-n { background:var(--c-primary); color:#fff; }
 .step-lbl {
-  font-family:'Barlow Condensed',sans-serif; font-size:.82rem; font-weight:700;
+  font-family:'DIN',sans-serif; font-size:.82rem; font-weight:700;
   letter-spacing:.06em; text-transform:uppercase;
   color:rgba(255,255,255,.4); transition:color .25s;
 }
@@ -729,7 +792,7 @@ section {
   border-radius:6px; padding:36px; min-height:170px;
   box-shadow:0 4px 20px rgba(0,0,0,.25);
 }
-.step-d-title { font-family:'Barlow Condensed',sans-serif; font-size:1.3rem; font-weight:700; color:var(--c-primary); margin-bottom:10px; letter-spacing:.02em; }
+.step-d-title { font-family:'DIN',sans-serif; font-size:1.3rem; font-weight:700; color:var(--c-primary); margin-bottom:10px; letter-spacing:.02em; }
 .step-d-text  { font-size:.9rem; line-height:1.7; color:#fff; max-width:680px; margin-bottom:16px; }
 .tag-row { display:flex; flex-wrap:wrap; gap:7px; }
 .tag {
@@ -737,13 +800,13 @@ section {
   padding:4px 12px; border-radius:100px;
 }
 .tag-orange { background:rgba(237,109,2,.18); color:var(--c-primary);  border:1px solid rgba(237,109,2,.28); }
-.tag-teal   { background:rgba(0,137,123,.18); color:#4DB6AC;            border:1px solid rgba(0,137,123,.28); }
+.tag-teal   { background:rgba(56,165,217,.18); color:#38a5d9;            border:1px solid rgba(56,165,217,.28); }
 .tag-purple { background:rgba(123,31,162,.18); color:#CE93D8;           border:1px solid rgba(123,31,162,.28); }
 
 /* ── APP MOVIL ── */
 .app-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; width:100%; max-width:1000px; }
 .app-col-hdr {
-  font-family:'Barlow Condensed',sans-serif; font-size:.82rem; font-weight:800;
+  font-family:'DIN',sans-serif; font-size:.82rem; font-weight:800;
   letter-spacing:.12em; text-transform:uppercase;
   padding:7px 18px; border-radius:30px; display:inline-block; margin-bottom:16px;
 }
@@ -754,7 +817,7 @@ section {
   transition:border-color .25s; margin-bottom:12px;
 }
 .app-item:hover { border-color:rgba(255,255,255,.14); }
-.app-item-phase { font-family:'Barlow Condensed',sans-serif; font-size:.86rem; font-weight:700; margin-bottom:5px; letter-spacing:.03em; }
+.app-item-phase { font-family:'DIN',sans-serif; font-size:.86rem; font-weight:700; margin-bottom:5px; letter-spacing:.03em; }
 .app-item-det   { font-size:.81rem; line-height:1.55; color:#fff; }
 
 /* ── ROADMAP ── */
@@ -766,26 +829,26 @@ section {
 .rm-col { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.07); border-radius:6px; padding:30px; position:relative; z-index:1; box-shadow:0 4px 20px rgba(0,0,0,.25); }
 .rm-col.now  { border-color:rgba(46,125,50,.4);  background:rgba(46,125,50,.07);  }
 .rm-col.soon { border-color:rgba(237,109,2,.4);  background:rgba(237,109,2,.07);  }
-.rm-col.mid  { border-color:rgba(0,137,123,.4);  background:rgba(0,137,123,.07);  }
+.rm-col.mid  { border-color:rgba(56,165,217,.4); background:rgba(56,165,217,.07);  }
 .rm-badge {
-  font-family:'Barlow Condensed',sans-serif; font-size:.72rem; font-weight:800;
+  font-family:'DIN',sans-serif; font-size:.72rem; font-weight:800;
   letter-spacing:.14em; text-transform:uppercase;
   padding:5px 14px; border-radius:30px; display:inline-block; margin-bottom:6px;
 }
 .rm-col.now  .rm-badge { background:rgba(46,125,50,.3);  color:#81C784; }
 .rm-col.soon .rm-badge { background:rgba(237,109,2,.3);  color:var(--c-primary); }
-.rm-col.mid  .rm-badge { background:rgba(0,137,123,.3);  color:#4DB6AC; }
+.rm-col.mid  .rm-badge { background:rgba(56,165,217,.3); color:#38a5d9; }
 .rm-sub { font-size:.76rem; color:rgba(255,255,255,.3); margin-bottom:22px; }
 .rm-list { list-style:none; display:flex; flex-direction:column; gap:11px; }
 .rm-list li { font-size:.83rem; line-height:1.5; color:#fff; padding-left:20px; position:relative; }
 .rm-col.now  .rm-list li::before { content:'✓'; position:absolute; left:0; color:#81C784; font-size:.72rem; }
 .rm-col.soon .rm-list li::before { content:'→'; position:absolute; left:0; color:var(--c-primary); font-size:.72rem; }
-.rm-col.mid  .rm-list li::before { content:'◆'; position:absolute; left:0; color:#4DB6AC; font-size:.5rem; top:5px; }
+.rm-col.mid  .rm-list li::before { content:'◆'; position:absolute; left:0; color:#38a5d9;font-size:.5rem; top:5px; }
 
 /* ── CIERRE ── */
 #cierre { text-align:center; }
 .cierre-h1 {
-  font-family:'Barlow Condensed',sans-serif;
+  font-family:'DIN',sans-serif;
   font-size:clamp(2.8rem,7vw,6rem); font-weight:800;
   line-height:.95; letter-spacing:-.01em;
 }
@@ -846,7 +909,7 @@ section {
   background: rgba(237,109,2,.05);
 }
 .flujo-card-title {
-  font-family: 'Barlow Condensed', sans-serif; font-size: .86rem; font-weight: 700;
+  font-family: 'DIN', sans-serif; font-size: .86rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .08em;
   margin-bottom: 10px; color: var(--c-primary);
 }
@@ -866,17 +929,17 @@ section {
 
 .flujo-img-wrap {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1300px;
   background: #ffffff;
   border-radius: 12px;
-  padding: 32px 48px;
+  padding: 12px 16px;
   box-shadow: 0 24px 64px rgba(0,0,0,.5);
 }
 .flujo-img {
   width: 100%; height: auto; display: block;
 }
 @media(max-width:900px){
-  .flujo-img-wrap { padding: 20px 16px; }
+  .flujo-img-wrap { padding: 8px 8px; }
 }
 
 /* ── ARQUITECTURA LMS → eFTI ── */
@@ -901,10 +964,10 @@ section {
 }
 .arq-col.lms  .arq-col-label { background: rgba(237,109,2,.25); color: var(--c-primary); }
 .arq-col.core .arq-col-label { background: rgba(255,255,255,.1); color: rgba(255,255,255,.7); align-self:center; }
-.arq-col.efti .arq-col-label { background: rgba(0,137,123,.25); color: #4DB6AC; }
+.arq-col.efti .arq-col-label { background: rgba(56,165,217,.25); color: #38a5d9; }
 
 .arq-col-title {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 700;
+  font-family: 'DIN', sans-serif; font-size: 1.05rem; font-weight: 700;
   line-height: 1.2; margin-bottom: 4px; letter-spacing: .02em;
 }
 .arq-item {
@@ -916,20 +979,20 @@ section {
 .arq-item-num {
   width: 24px; height: 24px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .76rem;
+  font-family: 'DIN', sans-serif; font-weight: 700; font-size: .76rem;
   color: #fff; margin-bottom: 8px;
 }
 .arq-col.lms .arq-item-num { background: var(--c-primary); }
 .arq-col.efti .arq-item-num { background: var(--c-secondary); }
 .arq-item-title {
-  font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 700;
+  font-family: 'DIN', sans-serif; font-size: .9rem; font-weight: 700;
   margin-bottom: 4px; letter-spacing: .02em;
 }
 .arq-item-desc {
   font-size: .77rem; color: rgba(255,255,255,.48); line-height: 1.5;
 }
 .arq-core-name {
-  font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 800;
+  font-family: 'DIN', sans-serif; font-size: 1.2rem; font-weight: 800;
   color: #fff; margin: 10px 0 6px; letter-spacing: .03em;
 }
 .arq-core-sub {
@@ -942,7 +1005,7 @@ section {
 }
 .arq-pill:hover { filter: brightness(1.15); }
 .arq-pill.process  { background: rgba(237,109,2,.22);  color: var(--c-primary);  border: 1px solid rgba(237,109,2,.3); }
-.arq-pill.store    { background: rgba(0,137,123,.22);  color: #4DB6AC;            border: 1px solid rgba(0,137,123,.3); }
+.arq-pill.store    { background: rgba(56,165,217,.22); color: #38a5d9;             border: 1px solid rgba(56,165,217,.3); }
 .arq-pill.comm     { background: rgba(123,31,162,.22); color: #CE93D8;            border: 1px solid rgba(123,31,162,.3); }
 .arq-badges {
   display: flex; gap: 8px; margin-top: 12px; justify-content: center; flex-wrap: wrap;
@@ -957,7 +1020,7 @@ section {
   width: 100%; max-width: 1100px;
   background: var(--c-primary); border-radius: 30px;
   padding: 14px 28px; text-align: center;
-  font-family: 'Barlow Condensed', sans-serif; font-size: .95rem; font-weight: 700; color: #fff;
+  font-family: 'DIN', sans-serif; font-size: .95rem; font-weight: 700; color: #fff;
   letter-spacing: .06em; text-transform: uppercase;
 }
 
@@ -980,7 +1043,7 @@ section {
   width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
   background: var(--c-primary); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: .82rem;
+  font-family: 'DIN', sans-serif; font-weight: 700; font-size: .82rem;
   z-index: 1; box-shadow: 0 0 0 4px rgba(237,109,2,.15);
 }
 .arq-tl-body {
@@ -992,7 +1055,7 @@ section {
 .arq-tl-body:hover { border-color: rgba(255,255,255,.18); }
 .arq-tl-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
 .arq-tl-icon { font-size: 1.4rem; opacity: .55; flex-shrink: 0; margin-top: 2px; }
-.arq-tl-title { font-family: 'Barlow Condensed', sans-serif; font-size: .9rem; font-weight: 700; margin-bottom: 4px; letter-spacing: .02em; }
+.arq-tl-title { font-family: 'DIN', sans-serif; font-size: .9rem; font-weight: 700; margin-bottom: 4px; letter-spacing: .02em; }
 .arq-tl-desc  { font-size: .77rem; color: rgba(255,255,255,.48); line-height: 1.5; }
 
 /* DeCa badge */
@@ -1021,7 +1084,7 @@ section {
   display: inline-flex; align-items: center; gap: 5px;
   font-size: .67rem; font-weight: 600; letter-spacing: .03em;
   padding: 3px 9px; border-radius: 4px; margin-top: 8px;
-  background: rgba(0,137,123,.18); color: #4DB6AC;
+  background: rgba(56,165,217,.18); color: #38a5d9;
   border: 1px solid rgba(0,137,123,.28);
 }
 .arq-simple-badge {
@@ -1036,7 +1099,7 @@ section {
 .arq-xborder-tag {
   display: inline-block;
   font-size: .64rem; padding: 2px 8px; border-radius: 4px; margin-top: 6px;
-  background: rgba(0,137,123,.14); color: #4DB6AC;
+  background: rgba(56,165,217,.14); color: #38a5d9;
   border: 1px solid rgba(0,137,123,.22);
 }
 
@@ -1083,7 +1146,7 @@ section {
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="s-dark">
+<section id="hero" class="s-light">
   <div class="hero-eye" id="hero-eye"></div>
   <h1 class="hero-h1" id="hero-h1"></h1>
   <p class="hero-sub-txt" id="hero-sub"></p>
@@ -1092,52 +1155,52 @@ section {
 </section>
 
 <!-- REGULACION -->
-<section id="regulacion" class="s-deep">
+<section id="regulacion" class="s-dark">
   <div class="s-hdr rv" id="reg-hdr"></div>
   <div class="reg-grid rv" id="reg-grid"></div>
   <div class="reg-note rv" id="reg-note"></div>
 </section>
 
 <!-- ACTORES -->
-<section id="actores" class="s-dark">
+<section id="actores" class="s-light">
   <div class="s-hdr rv" id="act-hdr"></div>
   <div class="actors-row rv" id="actors-row"></div>
 </section>
 
 <!-- FLUJO DEL PROCESO -->
-<section id="flujo" class="s-deep">
+<section id="flujo" class="s-dark">
   <div class="s-hdr rv" id="flujo-hdr"></div>
   <div class="flujo-row rv" id="flujo-row"></div>
 </section>
 
 <!-- ARQUITECTURA LMS → eFTI -->
-<section id="arquitectura" class="s-dark">
+<section id="arquitectura" class="s-light">
   <div class="s-hdr rv" id="arq-hdr"></div>
   <div class="arq-wrap rv" id="arq-wrap"></div>
   <div class="arq-footer rv" id="arq-footer"></div>
 </section>
 
 <!-- DEMO PORTAL -->
-<section id="demo" class="s-deep">
+<section id="demo" class="s-dark">
   <div class="s-hdr rv" id="demo-hdr"></div>
   <div class="steps-row rv" id="steps-row"></div>
   <div class="step-detail-box rv" id="step-detail"></div>
 </section>
 
 <!-- APP MOVIL -->
-<section id="app" class="s-dark">
+<section id="app" class="s-light">
   <div class="s-hdr rv" id="app-hdr"></div>
   <div class="app-grid rv" id="app-grid"></div>
 </section>
 
 <!-- ROADMAP -->
-<section id="roadmap" class="s-deep">
+<section id="roadmap" class="s-dark">
   <div class="s-hdr rv" id="rm-hdr"></div>
   <div class="roadmap-grid rv" id="rm-grid"></div>
 </section>
 
 <!-- CIERRE -->
-<section id="cierre" class="s-black">
+<section id="cierre" class="s-dark" style="background:#002d72">
   <div class="rv" id="cierre-content"></div>
 </section>
 
@@ -1193,11 +1256,10 @@ function renderAll(cfg){
   const r = document.documentElement.style;
   r.setProperty('--c-primary',   cfg.brand.colorPrimary);
   r.setProperty('--c-secondary', cfg.brand.colorSecondary);
-  r.setProperty('--c-dark',      cfg.brand.colorDark);
 
   /* ── NAV ── */
   document.getElementById('nav-brand').innerHTML =
-    cfg.brand.name.split(' ').map((w,i) => i===1 ? `<em>${w}</em>` : w).join(' ');
+    `<img src="img/ZETES 250x50-300dpi.png" alt="Zetes">`;
   document.getElementById('nav-links').innerHTML =
     NAV_SECTIONS.map((id,i) => `<li><a href="#${id}">${cfg.nav.labels[i]}</a></li>`).join('') +
     `<li><button class="lang-btn" onclick="switchLang()">${isEN ? 'ES' : 'EN'}</button></li>`;
@@ -1286,7 +1348,7 @@ function renderAll(cfg){
 
   document.getElementById('flujo-row').innerHTML =
     `<div class="flujo-img-wrap">
-       <img src="img/img2.png" alt="${cfg.flujo.sectionTitle}" class="flujo-img">
+       <img src="${cfg.flujo.img}" alt="${cfg.flujo.sectionTitle}" class="flujo-img">
      </div>`;
 
   /* ── ARQUITECTURA ── */
@@ -1298,7 +1360,7 @@ function renderAll(cfg){
 
   document.getElementById('arq-wrap').innerHTML =
     `<div class="flujo-img-wrap">
-       <img src="img/img3.png" alt="${cfg.arquitectura.sectionTitle}" class="flujo-img">
+       <img src="${cfg.arquitectura.img}" alt="${cfg.arquitectura.sectionTitle}" class="flujo-img">
      </div>`;
 
   document.getElementById('arq-footer').innerHTML =
