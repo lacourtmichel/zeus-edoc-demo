@@ -128,30 +128,35 @@ const CFG = {
         short: "Archivo",
         desc:  "Sube tu propio PDF de transporte o activa la generación automática. Zeus eDoc crea el PDF final a partir de los metadatos que introduces en los pasos siguientes.",
         tags:  [{ label: "PDF upload", color: "orange" }, { label: "Auto-generación", color: "orange" }],
+        video: "videos/step-1-archivo.mp4",
       },
       {
         title: "Partes del envío",
         short: "Partes",
         desc:  "Introduce los datos del Expedidor, Transportista y Destinatario: empresa, NIF/VAT, dirección, teléfono para OTP y email. Estos datos se guardan para futuros documentos.",
         tags:  [{ label: "Expedidor", color: "orange" }, { label: "Transportista", color: "teal" }, { label: "Destinatario", color: "purple" }],
+        video: null,
       },
       {
         title: "Datos del transporte",
         short: "Transporte",
         desc:  "Matrícula del vehículo, descripción de la mercancía, origen y destino completos, peso bruto y si hay mercancía peligrosa (ADR). Estos campos alimentan el Documento de Control.",
         tags:  [{ label: "Matrícula", color: "teal" }, { label: "Mercancía", color: "teal" }, { label: "ADR", color: "orange" }],
+        video: null,
       },
       {
         title: "Opciones de firma",
         short: "Firma",
         desc:  "Selecciona el canal de firma del transportista: App (Fase 1 manuscrita o Fase 2 SealSign OTP) o sin app (WhatsApp/SMS/email). Configura también cómo firmará el destinatario.",
         tags:  [{ label: "Fase 1 manuscrita", color: "orange" }, { label: "SealSign OTP", color: "teal" }, { label: "WhatsApp", color: "teal" }],
+        video: null,
       },
       {
         title: "Revisión y envío",
         short: "Confirmar",
         desc:  "Vista previa del documento completo. Al confirmar, el Expedidor firma automáticamente, se genera el QR y el Transportista recibe su notificación de firma. Estado S·C·R visible en tiempo real.",
         tags:  [{ label: "QR generado", color: "orange" }, { label: "Firma auto Expedidor", color: "teal" }, { label: "Estado S·C·R", color: "purple" }],
+        video: null,
       },
     ],
   },
@@ -391,30 +396,35 @@ const CFG_EN = {
         short: "File",
         desc:  "Upload your own transport PDF or activate automatic generation. Zeus eDoc creates the final PDF from the metadata you enter in the following steps.",
         tags:  [{ label: "PDF upload", color: "orange" }, { label: "Auto-generation", color: "orange" }],
+        video: "step-1-archivo.mp4",
       },
       {
         title: "Shipment parties",
         short: "Parties",
         desc:  "Enter data for the Shipper, Carrier and Receiver: company, VAT number, address, OTP phone and email. This data is saved for future documents.",
         tags:  [{ label: "Shipper", color: "orange" }, { label: "Carrier", color: "teal" }, { label: "Receiver", color: "purple" }],
+        video: null,
       },
       {
         title: "Transport data",
         short: "Transport",
         desc:  "Vehicle plate number, cargo description, full origin and destination, gross weight and whether there are hazardous goods (ADR). These fields feed the Control Document.",
         tags:  [{ label: "Plate number", color: "teal" }, { label: "Cargo", color: "teal" }, { label: "ADR", color: "orange" }],
+        video: null,
       },
       {
         title: "Signing options",
         short: "Sign",
         desc:  "Select the carrier signing channel: App (Phase 1 handwritten or Phase 2 SealSign OTP) or without app (WhatsApp/SMS/email). Also configure how the receiver will sign.",
         tags:  [{ label: "Phase 1 handwritten", color: "orange" }, { label: "SealSign OTP", color: "teal" }, { label: "WhatsApp", color: "teal" }],
+        video: null,
       },
       {
         title: "Review & send",
         short: "Confirm",
         desc:  "Full document preview. Upon confirmation, the Shipper signs automatically, the QR is generated and the Carrier receives their signing notification. S·C·R status visible in real time.",
         tags:  [{ label: "QR generated", color: "orange" }, { label: "Auto Shipper sign", color: "teal" }, { label: "S·C·R Status", color: "purple" }],
+        video: null,
       },
     ],
   },
@@ -802,6 +812,19 @@ section {
 .tag-orange { background:rgba(237,109,2,.18); color:var(--c-primary);  border:1px solid rgba(237,109,2,.28); }
 .tag-teal   { background:rgba(56,165,217,.18); color:#38a5d9;            border:1px solid rgba(56,165,217,.28); }
 .tag-purple { background:rgba(123,31,162,.18); color:#CE93D8;           border:1px solid rgba(123,31,162,.28); }
+
+/* ── Demo — vídeo ── */
+.demo-video {
+  width:100%; border-radius:8px; display:block; background:#000;
+}
+.demo-video-placeholder {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  min-height:300px;
+  background:rgba(255,255,255,.04); border-radius:8px;
+  border:2px dashed rgba(255,255,255,.2); gap:12px;
+}
+.demo-placeholder-icon { font-size:2.5rem; opacity:.3; }
+.demo-placeholder-txt  { color:rgba(255,255,255,.4); font-size:.9rem; margin:0; }
 
 /* ── APP MOVIL ── */
 .app-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; width:100%; max-width:1000px; }
@@ -1237,11 +1260,18 @@ function tick(){
 function setStep(i){
   document.querySelectorAll('.step-btn').forEach((b,j)=>b.classList.toggle('active-step',j===i));
   const s = activeCfg.demo.steps[i];
-  const tags = (s.tags||[]).map(t=>`<span class="tag tag-${t.color}">${t.label}</span>`).join('');
-  document.getElementById('step-detail').innerHTML =
-    `<div class="step-d-title">${s.title}</div>
-     <p class="step-d-text">${s.desc}</p>
-     <div class="tag-row">${tags}</div>`;
+  const prev = document.querySelector('#step-detail video');
+  if(prev){ prev.pause(); prev.currentTime=0; }
+  if(s.video){
+    document.getElementById('step-detail').innerHTML =
+      `<video class="demo-video" src="${s.video}" autoplay muted playsinline controls></video>`;
+  } else {
+    document.getElementById('step-detail').innerHTML =
+      `<div class="demo-video-placeholder">
+         <div class="demo-placeholder-icon">▶</div>
+         <p class="demo-placeholder-txt">Vídeo próximamente</p>
+       </div>`;
+  }
 }
 
 /* ── switchLang ── */
