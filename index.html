@@ -59,7 +59,7 @@ const CFG = {
         subtitle: "Reglamento (UE) 2020/1056 · Aplicación plena Julio 2027",
         deadline: new Date("2027-07-09T00:00:00"),
         deadlineLabel: "Aplicación plena: 9 Jul 2027",
-        accentColor: "#81C784",
+        accentColor: "#38a5d9",
         bullets: [
           "Marco europeo para todos los modos de transporte",
           "Autoridades obligadas a aceptar datos de plataformas certificadas",
@@ -106,7 +106,7 @@ const CFG = {
         emoji: "📬",
         role:  "Destinatario",
         sub:   "Consignatario",
-        color: "#81C784",
+        color: "#474a4b",
         bullets: [
           "Firma la recepción de mercancía en entrega",
           "Opción A: firma en el teléfono del transportista",
@@ -156,7 +156,7 @@ const CFG = {
         short: "Confirmar",
         desc:  "Vista previa del documento completo. Al confirmar, el Expedidor firma automáticamente, se genera el QR y el Transportista recibe su notificación de firma. Estado S·C·R visible en tiempo real.",
         tags:  [{ label: "QR generado", color: "orange" }, { label: "Firma auto Expedidor", color: "teal" }, { label: "Estado S·C·R", color: "purple" }],
-        video: null,
+        video: "videos/step-5-confirmacion.mp4",
       },
     ],
   },
@@ -191,7 +191,7 @@ const CFG = {
     ],
   },
 
-  /* ── Roadmap ───────────────────────────────────────────────── */
+  /* ── Roadmap ───────────────────────────────────────────────── 
   roadmap: {
     sectionLabel: "05 — Hoja de Ruta",
     sectionTitle: "¿Qué viene\na continuación?",
@@ -232,7 +232,7 @@ const CFG = {
         ],
       },
     ],
-  },
+  },*/
 
   /* ── Cierre / Próximos pasos ───────────────────────────────── */
   cierre: {
@@ -249,7 +249,7 @@ const CFG = {
 
   /* ── Navegación ────────────────────────────────────────── */
   nav: {
-    labels: ['Regulación','Actores','Flujo','Arquitectura','Portal Web','App Móvil','Roadmap'],
+    labels: ['Regulación','Actores','Flujo','Arquitectura','Portal Web','App Móvil'],
   },
 
   /* ── Sección Flujo ─────────────────────────────────────── */
@@ -273,7 +273,7 @@ const CFG = {
 /* CFG_EN — Versión en inglés */
 const CFG_EN = {
   nav: {
-    labels: ['Regulation','Actors','Flow','Architecture','Web Portal','Mobile App','Roadmap'],
+    labels: ['Regulation','Actors','Flow','Architecture','Web Portal','Mobile App'],
   },
   brand: {
     name:           "Zeus eDoc",
@@ -318,7 +318,7 @@ const CFG_EN = {
         subtitle:      "Regulation (EU) 2020/1056 · Full application July 2027",
         deadline:      new Date("2027-07-09T00:00:00"),
         deadlineLabel: "Full application: 9 Jul 2027",
-        accentColor:   "#81C784",
+        accentColor:   "#38a5d9",
         bullets: [
           "European framework for all modes of transport",
           "Authorities required to accept data from certified platforms",
@@ -363,7 +363,7 @@ const CFG_EN = {
         emoji: "📬",
         role:  "Receiver",
         sub:   "Consignee",
-        color: "#81C784",
+        color: "#474a4b",
         bullets: [
           "Signs receipt of goods upon delivery",
           "Option A: signs on the carrier's phone",
@@ -424,7 +424,7 @@ const CFG_EN = {
         short: "Confirm",
         desc:  "Full document preview. Upon confirmation, the Shipper signs automatically, the QR is generated and the Carrier receives their signing notification. S·C·R status visible in real time.",
         tags:  [{ label: "QR generated", color: "orange" }, { label: "Auto Shipper sign", color: "teal" }, { label: "S·C·R Status", color: "purple" }],
-        video: null,
+        video: "videos/step-5-confirmacion.mp4",
       },
     ],
   },
@@ -446,7 +446,7 @@ const CFG_EN = {
       },
       {
         title: "Receiver",
-        color: "#7B1FA2",
+        color: "#ed6d05",
         steps: [
           { phase: "Option A — Carrier's device", detail: "The receiver signs directly on the carrier's phone on-site. No installation or account required." },
           { phase: "Option B — Own device",        detail: "Receives link by SMS / WhatsApp / email · Opens in browser · Signs with or without eIDAS." },
@@ -456,7 +456,7 @@ const CFG_EN = {
       },
     ],
   },
-  roadmap: {
+  /*roadmap: {
     sectionLabel: "06 — Roadmap",
     sectionTitle: "What's coming\nnext?",
     phases: [
@@ -496,7 +496,7 @@ const CFG_EN = {
         ],
       },
     ],
-  },
+  },*/
   cierre: {
     title:    "Questions?",
     titleEM:  "",
@@ -843,7 +843,7 @@ section {
 .app-item-phase { font-family:'DIN',sans-serif; font-size:.86rem; font-weight:700; margin-bottom:5px; letter-spacing:.03em; }
 .app-item-det   { font-size:.81rem; line-height:1.55; color:#fff; }
 
-/* ── ROADMAP ── */
+/* ── ROADMAP ── 
 .roadmap-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; width:100%; max-width:1100px; position:relative; }
 .roadmap-grid::before {
   content:''; position:absolute; top:40px; left:15%; right:15%; height:1px;
@@ -866,7 +866,7 @@ section {
 .rm-list li { font-size:.83rem; line-height:1.5; color:#fff; padding-left:20px; position:relative; }
 .rm-col.now  .rm-list li::before { content:'✓'; position:absolute; left:0; color:#81C784; font-size:.72rem; }
 .rm-col.soon .rm-list li::before { content:'→'; position:absolute; left:0; color:var(--c-primary); font-size:.72rem; }
-.rm-col.mid  .rm-list li::before { content:'◆'; position:absolute; left:0; color:#38a5d9;font-size:.5rem; top:5px; }
+.rm-col.mid  .rm-list li::before { content:'◆'; position:absolute; left:0; color:#38a5d9;font-size:.5rem; top:5px; } */
 
 /* ── CIERRE ── */
 #cierre { text-align:center; }
@@ -1216,11 +1216,11 @@ section {
   <div class="app-grid rv" id="app-grid"></div>
 </section>
 
-<!-- ROADMAP -->
+<!-- ROADMAP 
 <section id="roadmap" class="s-dark">
   <div class="s-hdr rv" id="rm-hdr"></div>
   <div class="roadmap-grid rv" id="rm-grid"></div>
-</section>
+</section> -->
 
 <!-- CIERRE -->
 <section id="cierre" class="s-dark" style="background:#002d72">
@@ -1230,7 +1230,7 @@ section {
 <script>
 /* MOTOR DE RENDERIZADO */
 
-const NAV_SECTIONS = ['regulacion','actores','flujo','arquitectura','demo','app','roadmap'];
+const NAV_SECTIONS = ['regulacion','actores','flujo','arquitectura','demo','app'];
 let activeCfg = CFG;
 let tickInterval = null;
 const cdIds = [];
@@ -1427,7 +1427,7 @@ function renderAll(cfg){
         </div>`).join('')}
     </div>`).join('');
 
-  /* ── ROADMAP ── */
+  /* ── ROADMAP ── 
   document.getElementById('rm-hdr').innerHTML =
     `<div class="s-label">${cfg.roadmap.sectionLabel}</div>
      <h2 class="s-title">${cfg.roadmap.sectionTitle.replace(/\n/g,'<br>')}</h2>
@@ -1438,7 +1438,7 @@ function renderAll(cfg){
       <span class="rm-badge">${p.phase}</span>
       <div class="rm-sub">${p.sub}</div>
       <ul class="rm-list">${p.items.map(item=>`<li>${item}</li>`).join('')}</ul>
-    </div>`).join('');
+    </div>`).join('');*/
 
   /* ── CIERRE ── */
   const ns = cfg.cierre.nextSteps.map(n =>
