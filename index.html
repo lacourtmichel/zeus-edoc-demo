@@ -713,6 +713,11 @@ section {
   transition:transform .3s, box-shadow .3s;
 }
 .reg-card:hover { transform:translateY(-4px); box-shadow:0 8px 32px rgba(0,0,0,.4); }
+.reg-card .reg-name      { color: #002d72; }
+.reg-card .reg-sub       { color: rgba(71,74,75,.55); }
+.reg-card .cd-lbl        { color: rgba(71,74,75,.45); }
+.reg-card .cd-sep        { color: rgba(71,74,75,.25); }
+.reg-card .reg-list li   { color: #474a4b; }
 .reg-flag { font-size:2rem; margin-bottom:14px; display:block; }
 .reg-name { font-family:'DIN',sans-serif; font-size:1.1rem; font-weight:700; margin-bottom:4px; letter-spacing:.02em; }
 .reg-sub  { font-size:.78rem; color:rgba(255,255,255,.38); margin-bottom:22px; }
@@ -1312,13 +1317,13 @@ function renderAll(cfg){
   document.getElementById('reg-grid').innerHTML = cfg.regulacion.cards.map((c,i) => {
     const uid = `cd${i}`;
     cdIds.push({ uid, deadline: c.deadline });
-    const bg = `linear-gradient(135deg, ${c.accentColor}22 0%, ${c.accentColor}08 100%)`;
+    const bg = `#ffffff`;
     const border = `1px solid ${c.accentColor}55`;
     const lblDays = isEN ? 'days' : 'días';
     const lblHrs  = isEN ? 'hours' : 'horas';
     return `
     <div class="reg-card" style="background:${bg};border:${border}">
-      <span class="reg-flag">${c.flag}</span>
+      <span class="reg-flag" style="color:${c.accentColor}">${c.flag}</span>
       <div class="reg-name">${c.title}</div>
       <div class="reg-sub">${c.subtitle}</div>
       <div class="cd-row">
